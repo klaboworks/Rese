@@ -1,0 +1,13 @@
+.shop-creation-form{
+    max-width: 750px;
+    margin: 0 auto;
+    background-color: antiquewhite;
+}
+
+.shop_name {
+   border: solid 1px grey;
+}
+
+.shop_description {
+   border: solid 1px grey;
+}

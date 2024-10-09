@@ -11,11 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('store_managers', function (Blueprint $table) {
+        Schema::create('shops', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('email');
-            $table->string('password');
+            $table->string('shop_name');
+            $table->foreignId('area_id')->constrained()->cascadeOnDelete()->nullable();
+            $table->foreignId('genre_id')->constrained()->cascadeOnDelete()->nullable();
+            $table->string('shop_description');
+            $table->string('shop_image');
             $table->timestamps();
         });
     }
@@ -25,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('store_managers');
+        Schema::dropIfExists('shops');
     }
 };

@@ -21,11 +21,24 @@
                     <label for="shop_description" class="shop_description__label">店舗詳細</label>
                     <textarea name="shop_description" id="" cols="30" rows="10" class="shop_description"></textarea>
                 </div>
-                <div class="form__shop_category">
-                    <select name="" id="">
-                        <option value="">
-                            カテゴリを選ぶ
-                        </option>
+                <div class="form__shop_area">
+                    <p>エリアを選ぶ</p>
+                    <select name="area_id" id="">
+                        @foreach ($areas as $area)
+                            <option value="{{ $area->id }}">
+                                {{ $area->area_name }}
+                            </option>
+                        @endforeach
+                    </select>
+                </div>
+                <div class="form__shop_genre">
+                    <p>ジャンルを選ぶ</p>
+                    <select name="genre_id" id="">
+                        @foreach ($genres as $genre)
+                            <option value="{{ $genre->id }}">
+                                {{ $genre->genre_name }}
+                            </option>
+                        @endforeach
                     </select>
                 </div>
                 <div class="form__shop_image">

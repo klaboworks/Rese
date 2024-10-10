@@ -1,0 +1,37 @@
+:root{
+    --border: #dbbeb2;
+}
+
+.shop_index__inner {
+    max-width: 1360px;
+    margin: 0 auto;
+}
+
+.shop_index__table {
+    width: 100%;
+    border: solid 1px var(--border);
+    border-collapse: collapse;
+}
+
+.table-row {
+    >th {
+        height: 70px;
+        background-color: rgb(255, 164, 103);
+    }
+
+    >td {
+        padding: 32px 0;
+        text-align: center;
+        border: solid 1px var(--border);
+    }
+
+    .shop_description {
+        width: 30%;
+        text-align: left;
+        padding: 0 40px;
+    }
+}
+
+.table-data:nth-of-type(even) {
+    background-color: #fff6ed;
+}

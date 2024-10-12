@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
+use Intervention\Image\Laravel\Facades\Image as InterventionImage;
 use App\Models\Shop;
 use App\Models\Area;
 use App\Models\Genre;
@@ -14,8 +16,7 @@ class ShopManagementController extends Controller
      */
     public function index()
     {
-        $shops = Shop::with('area','genre')->get();
-        // dd($shops);
+        $shops = Shop::with('area', 'genre')->get();
         return view('admin.shop_index', compact('shops'));
     }
 
@@ -26,7 +27,7 @@ class ShopManagementController extends Controller
     {
         $areas = Area::all();
         $genres = Genre::all();
-        return view('admin.shop_creation', compact('areas', 'genres'));
+        return view('admin.shop_registration', compact('areas', 'genres'));
     }
 
     /**
@@ -34,13 +35,17 @@ class ShopManagementController extends Controller
      */
     public function store(Request $request)
     {
+        $image = $request->file('image');
+        $path = Storage::put('', $image);
+
         Shop::create([
             'shop_name' => $request->shop_name,
             'area_id' => $request->area_id,
             'genre_id' => $request->genre_id,
             'shop_description' => $request->shop_description,
+            'shop_image' => $path,
         ]);
-        return redirect('/admin/shop');
+        return redirect()->route('shop.index');
     }
 
     /**

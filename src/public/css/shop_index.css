@@ -1,4 +1,4 @@
-:root{
+:root {
     --border: #dbbeb2;
 }
 
@@ -25,10 +25,25 @@
         border: solid 1px var(--border);
     }
 
-    .shop_description {
+    .td__shop_description {
         width: 30%;
         text-align: left;
         padding: 0 40px;
+    }
+
+    .td__shop_image {
+        width: 20%;
+    }
+}
+
+.shop_image__image {
+    width: 90%;
+    margin: 0 auto;
+
+    >img {
+        width: 100%;
+        object-fit: cover;
+        vertical-align: middle;
     }
 }
 

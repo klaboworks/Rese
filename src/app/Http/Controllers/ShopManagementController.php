@@ -36,7 +36,14 @@ class ShopManagementController extends Controller
     public function store(Request $request)
     {
         $image = $request->file('image');
-        $path = Storage::put('', $image);
+
+        if ($image) {
+            // $image->getClientOriginalName();
+            // $path = $request->file('image')->storeAs('', $image);
+            $path = Storage::put('', $image);
+        } else {
+            $path = null;
+        }
 
         Shop::create([
             'shop_name' => $request->shop_name,

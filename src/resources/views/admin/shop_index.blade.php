@@ -42,7 +42,7 @@
                     </td>
                     <td class="td__shop_image">
                         <div class="shop_image__image">
-                            <img src="{{ asset('storage/' .$shop->shop_image) }}" alt="">
+                            <img src="{{ $shop->shop_image ? asset('storage/' .$shop->shop_image) :  asset('storage/' .'noimage.png')}}" alt="">
                         </div>
                     </td>
                 </tr>

@@ -17,4 +17,9 @@ class ShopController extends Controller
         // dd($shops);
         return view('index', compact('areas', 'genres', 'shops'));
     }
+
+    public function detail(Shop $shop)
+    {
+        return view('detail', ['shop' => $shop]);
+    }
 }

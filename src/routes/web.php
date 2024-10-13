@@ -5,6 +5,7 @@ use App\Http\Controllers\ShopController;
 use App\Http\Controllers\ShopManagementController;
 
 Route::get('/', [ShopController::class, 'index']);
+Route::get('/detail/{shop}', [ShopController::class, 'detail'])->name('shop.detail');
 
 Route::group(['prefix' => 'admin'], function () {
     Route::get('/shop', [ShopManagementController::class, 'index'])->name('shop.index');

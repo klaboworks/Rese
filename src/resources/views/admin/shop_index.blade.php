@@ -7,7 +7,7 @@
 @section('content')
 <p>店舗一覧</p>
 
-<a href="/admin/shop/create">ショップを登録する</a>
+<a href="{{route('admin.shop.create')}}">ショップを登録する</a>
 
 <section class="shop_index">
     <div class="shop_index__inner">

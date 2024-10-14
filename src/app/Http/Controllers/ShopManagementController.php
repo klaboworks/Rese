@@ -52,7 +52,7 @@ class ShopManagementController extends Controller
             'shop_description' => $request->shop_description,
             'shop_image' => $path,
         ]);
-        return redirect()->route('shop.index');
+        return redirect()->route('admin.shop.index');
     }
 
     /**

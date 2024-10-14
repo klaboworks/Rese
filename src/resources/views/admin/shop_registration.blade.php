@@ -7,7 +7,7 @@
 @section('content')
 <section class="shop_registration">
     <div class="shop_registration__inner">
-        <form action="{{route('shop.store')}}" method="post" enctype="multipart/form-data" class="shop-creation-form">
+        <form action="{{route('admin.shop.store')}}" method="post" enctype="multipart/form-data" class="shop-creation-form">
             @csrf
             <div class="form__shop_name">
                 <label for="shop_name">店舗名</label>

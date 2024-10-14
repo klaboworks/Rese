@@ -16,8 +16,8 @@
                             alt="">
                     </div>
                     <div class="shop_tags">
-                        <span class="shop_area">#{{ $shop->area_id }}</span>
-                        <span class="shop_genre">#{{ $shop->genre_id }}</span>
+                        <span class="shop_area">#{{ $shop->area->area_name }}</span>
+                        <span class="shop_genre">#{{ $shop->genre->genre_name }}</span>
                     </div>
                     <p class="shop_description">{{ $shop->shop_description }}</p>
                 </div>

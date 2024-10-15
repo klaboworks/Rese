@@ -20,4 +20,25 @@ class Shop extends Model
     {
         return $this->belongsTo(Genre::class);
     }
+
+    public function scopeAreaSearch($query, $shop_area)
+    {
+        if (!empty($shop_area)) {
+            $query->where('area_id', $shop_area);
+        }
+    }
+
+    public function scopeGenreSearch($query, $shop_genre)
+    {
+        if (!empty($shop_genre)) {
+            $query->where('genre_id', $shop_genre);
+        }
+    }
+
+    public function scopeKeywordSearch($query, $keyword)
+    {
+        if (!empty($keyword)) {
+            $query->where('shop_name', 'like', '%' . $keyword . '%');
+        }
+    }
 }

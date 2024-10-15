@@ -18,6 +18,19 @@ class ShopController extends Controller
         return view('index', compact('areas', 'genres', 'shops'));
     }
 
+    public function search(Request $request)
+    {
+        // dd($request);
+        $areas = Area::all();
+        $genres = Genre::all();
+        $shops = Shop::with('area', 'genre')
+            ->AreaSearch($request->shop_area)
+            ->GenreSearch($request->shop_genre)
+            ->KeywordSearch($request->shop_name)
+            ->get();
+        return view('index', compact('areas', 'genres', 'shops'));
+    }
+
     public function detail(Shop $shop)
     {
         return view('detail', ['shop' => $shop]);

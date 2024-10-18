@@ -40,7 +40,15 @@
                                     <span class="shop_area">#{{ $shop->area->area_name }}</span>
                                     <span class="shop_genre">#{{ $shop->genre->genre_name }}</span>
                                 </div>
-                                <a href="/detail/{{ $shop->id }}" class="shop_detail">詳しく見る</a>
+                                <div class="buttons">
+                                    <a href="/detail/{{ $shop->id }}" class="shop_detail">詳しく見る</a>
+                                    <form action="{{ route('shop.fav') }}" method="post">
+                                        @csrf
+                                        <input type="hidden" name='shop_id' value="{{ $shop->id }}">
+                                        <button class="fav_btn"><img src="{{ asset('icons/fav_active.png') }}"
+                                                alt=""></button>
+                                    </form>
+                                </div>
                             </div>
                         </div>
                     @empty

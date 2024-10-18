@@ -77,12 +77,32 @@
     margin-bottom: 8px;
 }
 
+.buttons {
+    display: flex;
+    justify-content: space-between;
+    text-align: baseline;
+
+    .fav_btn {
+        border: none;
+        background: none;
+        width: 56px;
+        height: 56px;
+        transform: translateY(10px);
+        cursor: pointer;
+
+        >img {
+            width: 100%;
+            object-fit: cover;
+        }
+    }
+}
+
 .shop_detail {
     text-decoration: none;
     padding: 8px 20px;
     margin-top: 20px;
     border-radius: 6px;
-    display: inline-block;
+    height: 40px;
     color: white;
     background-color: #305dff;
 }
@@ -97,7 +117,7 @@
         margin: 25vh 0 24px;
     }
 
-    >a{
+    >a {
         color: #305dff;
     }
 }

@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Area;
 use App\Models\Genre;
 use App\Models\Shop;
+use App\Models\Favorite;
 
 class ShopController extends Controller
 {
@@ -34,5 +35,11 @@ class ShopController extends Controller
     public function detail(Shop $shop)
     {
         return view('detail', ['shop' => $shop]);
+    }
+
+    public function favorite(Request $request)
+    {
+        Favorite::create(['shop_id' => $request->shop_id,]);
+        return redirect()->route('shop.index');
     }
 }

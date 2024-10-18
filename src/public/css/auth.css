@@ -1,0 +1,166 @@
+:root {
+    --shadow: #969696;
+}
+
+/* ログイン画面 */
+.login {
+    min-height: 100vh;
+    background-color: #ededed;
+}
+
+.login__inner {
+    max-width: 1240px;
+    margin: 0 auto;
+}
+
+.login__panel {
+    max-width: 360px;
+    margin: 0 auto;
+    background-color: white;
+    border-radius: 4px;
+    box-shadow: 2px 2px 2px var(--shadow);
+}
+
+.panel__heading {
+    background-color: #4553ff;
+    border-radius: 4px 4px 0 0;
+    padding: 16px;
+
+    >.heading__ttl {
+        font-size: 16px;
+        color: white;
+        font-weight: normal;
+    }
+}
+
+.panel__body {
+    padding: 24px 24px 24px 64px;
+}
+
+.login__form {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    position: relative;
+
+    >input {
+        background-color: none;
+        border: none;
+        border-bottom: solid 1px black;
+    }
+
+    >.login__btn {
+        margin-top: 12px;
+        margin-left: auto;
+        padding: 6px;
+        width: 80px;
+        font-size: 12px;
+        color: white;
+        background-color: #4553ff;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+}
+
+.login__form::before {
+    display: inline-block;
+    position: absolute;
+    width: 32px;
+    height: 32px;
+    content: '';
+    z-index: 100;
+    background-image: url(src/public/icons/email.png);
+    background-size: contain;
+    background-color: black;
+    transform: translate(-40px, -6px);
+}
+
+.login__form::after {
+    display: inline-block;
+    position: absolute;
+    bottom: 0;
+    width: 32px;
+    height: 32px;
+    content: '';
+    z-index: 100;
+    background-image: url(src/public/icons/email.png);
+    background-size: contain;
+    background-color: rgb(255, 96, 96);
+    transform: translate(-40px, -50px);
+}
+
+
+
+/* ユーザー登録画面 */
+.register {
+    min-height: 100vh;
+    background-color: #ededed;
+}
+
+.register__inner {
+    max-width: 1240px;
+    margin: 0 auto;
+}
+
+.register__panel {
+    max-width: 360px;
+    margin: 0 auto;
+    background-color: white;
+    border-radius: 4px;
+    box-shadow: 2px 2px 2px var(--shadow);
+}
+
+.panel__heading {
+    background-color: #4553ff;
+    border-radius: 4px 4px 0 0;
+    padding: 16px;
+
+    >.heading__ttl {
+        font-size: 16px;
+        color: white;
+        font-weight: normal;
+    }
+}
+
+.panel__body {
+    padding: 24px;
+}
+
+.register__form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    position: relative;
+
+
+    >.input__elements {
+        display: flex;
+        gap:6px;
+
+        >img{
+            width: 24px;
+            height: 24px;
+        }
+
+        >input {
+            width: 100%;
+            background-color: none;
+            border: none;
+            border-bottom: solid 1px black;
+        }
+    }
+
+    >.register__btn {
+        margin-top: 12px;
+        margin-left: auto;
+        padding: 6px;
+        width: 80px;
+        font-size: 12px;
+        color: white;
+        background-color: #4553ff;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+}

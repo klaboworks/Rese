@@ -4,11 +4,13 @@
     <link rel="stylesheet" href="{{ asset('css/index.css') }}">
 @endsection
 
+@section('title','飲食店一覧')
+
 @section('content')
     <section class="index">
         <div class="index__inner">
             <div class="index__heading">
-                <div>ボタン入れる</div>
+                <x-menu-box />
                 <div class="shop-search">
                     <form action="{{ route('shop.search') }}" method="GET" class="shop-search__form">
                         <select name="shop_area" id="" class="form-element__shop_area">
@@ -44,6 +46,9 @@
                                     <a href="/detail/{{ $shop->id }}" class="shop_detail">詳しく見る</a>
                                     <form action="{{ route('shop.fav') }}" method="post">
                                         @csrf
+                                        @if (Auth::check())
+                                            <input type="hidden" name='user_id' value="{{ Auth::user()->id }}">
+                                        @endif
                                         <input type="hidden" name='shop_id' value="{{ $shop->id }}">
                                         <button class="fav_btn"><img src="{{ asset('icons/fav_active.png') }}"
                                                 alt=""></button>

@@ -19,6 +19,11 @@ class ShopController extends Controller
         return view('index', compact('areas', 'genres', 'shops'));
     }
 
+    public function menu()
+    {
+        return view('menu');
+    }
+
     public function search(Request $request)
     {
         // dd($request);
@@ -39,7 +44,10 @@ class ShopController extends Controller
 
     public function favorite(Request $request)
     {
-        Favorite::create(['shop_id' => $request->shop_id,]);
+        Favorite::create([
+            'user_id' => $request->user_id,
+            'shop_id' => $request->shop_id,
+        ]);
         return redirect()->route('shop.index');
     }
 }

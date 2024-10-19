@@ -16,7 +16,8 @@
                         <h2 class="heading__ttl">Login</h2>
                     </div>
                     <div class="panel__body">
-                        <form action="" class="login__form">
+                        <form action="/login" method="post" class="login__form">
+                            @csrf
                             <input type="text" name="email" placeholder="Email" class="input__email">
                             <input type="password" name="password" placeholder="Password" class="input__pass">
                             <button type="submit" class="login__btn">ログイン</button>

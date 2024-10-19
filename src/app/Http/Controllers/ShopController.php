@@ -7,6 +7,7 @@ use App\Models\Area;
 use App\Models\Genre;
 use App\Models\Shop;
 use App\Models\Favorite;
+use App\Models\Reservation;
 
 class ShopController extends Controller
 {
@@ -48,6 +49,19 @@ class ShopController extends Controller
             'user_id' => $request->user_id,
             'shop_id' => $request->shop_id,
         ]);
+        return redirect()->route('shop.index');
+    }
+
+    public function reserve(Request $request)
+    {
+        Reservation::create([
+            'user_id' => $request->user_id,
+            'shop_id' => $request->shop_id,
+            'date' => $request->date,
+            'time' => $request->time,
+            'number' => $request->number,
+        ]);
+
         return redirect()->route('shop.index');
     }
 }

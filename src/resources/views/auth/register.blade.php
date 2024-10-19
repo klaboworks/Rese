@@ -8,7 +8,7 @@
     <section class="register">
         <div class="register__inner">
             <div class="register__heading">
-                <div>menu button</div>
+                <x-menu-box />
             </div>
             <div class="register__body">
                 <div class="register__panel">

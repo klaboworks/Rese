@@ -17,6 +17,7 @@
 .index__heading {
     display: flex;
     justify-content: space-between;
+    vertical-align: top;
     padding-bottom: 32px;
 }
 

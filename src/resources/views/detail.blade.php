@@ -31,7 +31,9 @@
                     <h3 class="form-title form-elements">予約</h3>
                     <form action="" method="post" class="shop-reservation">
                         @csrf
-                        <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
+                        @if (Auth::check())
+                            <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
+                        @endif
                         <input type="hidden" name="shop_id" value="{{ $shop->id }}">
                         <ul class="form-elements">
                             <li class="form__date">
@@ -64,23 +66,25 @@
                         <button class="form-btn">予約する</button>
                     </form>
                     <div class="reservations">
-                        @php
-                            $reservations = Auth::user()->getReservation();
-                        @endphp
-                        @foreach ($reservations as $reservation)
-                            <p class="reservation_shop">
-                                {{ $reservation->shop_id ?? '' }}
-                            </p>
-                            <p class="reservation_date">
-                                {{ $reservation->date ?? '' }}
-                            </p>
-                            <p class="reservation_time">
-                                {{ $reservation->time ?? '' }}
-                            </p>
-                            <p class="reservation_number">
-                                {{ $reservation->number . '人' ?? '' }}
-                            </p>
-                        @endforeach
+                        @if (Auth::check())
+                            @php
+                                $reservations = Auth::user()->getReservation();
+                            @endphp
+                            @foreach ($reservations as $reservation)
+                                <p class="reservation_shop">
+                                    {{ $reservation->shop_id ?? '' }}
+                                </p>
+                                <p class="reservation_date">
+                                    {{ $reservation->date ?? '' }}
+                                </p>
+                                <p class="reservation_time">
+                                    {{ $reservation->time ?? '' }}
+                                </p>
+                                <p class="reservation_number">
+                                    {{ $reservation->number . '人' ?? '' }}
+                                </p>
+                            @endforeach
+                        @endif
                     </div>
                 </div>
             </div>

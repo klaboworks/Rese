@@ -64,7 +64,7 @@
                             <button> Logout </button>
                         </form>
                     </li>
-                    <li class="list__item"><a href="/">Mypage</a></li>
+                    <li class="list__item"><a href="{{ route('user.mypage') }}">Mypage</a></li>
                 </ul>
             </div>
         @else

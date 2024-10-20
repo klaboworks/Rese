@@ -1,0 +1,154 @@
+:root {
+    --shadow: #969696;
+    --blue: #4553ff;
+}
+
+.mypage {
+    min-height: 100vh;
+    background-color: #eeeeee;
+}
+
+.mypage__inner {
+    max-width: 1440px;
+    width: calc(100% - 80px);
+    padding: 40px 0;
+    margin: 0 auto;
+}
+
+.user_name__text {
+    text-align: center;
+    margin: 40px 0;
+}
+
+.mypage__body {
+    display: flex;
+    gap: 10%;
+}
+
+.mypage-block__left {
+    flex: 35%;
+}
+
+.mypage-block__right {
+    flex: 55%;
+}
+
+.left__ttl,
+.right__ttl {
+    margin-bottom: 40px;
+}
+
+.reservation__field {
+    width: 100%;
+}
+
+.reservation__panel {
+    padding: 24px;
+    margin-bottom: 32px;
+    box-shadow: 4px 4px 4px var(--shadow);
+    border-radius: 4px;
+    background-color: var(--blue);
+}
+
+.panel__heading {
+    position: relative;
+    margin-bottom: 24px;
+
+    >img {
+        width: 24px;
+        height: 24px;
+        display: inline-block;
+        transform: translateY(6px);
+    }
+
+    p {
+        color: white;
+        margin-left: 24px;
+        display: inline-block;
+    }
+
+    button {
+        position: absolute;
+        top: 0;
+        right: 0;
+    }
+}
+
+.panel__body {
+    width: 100%;
+    text-align: left;
+
+    >tbody>tr>th {
+        width: 25%;
+    }
+
+    th,
+    td {
+        color: white;
+        font-size: 16px;
+        font-weight: normal;
+        height: 40px;
+    }
+}
+
+.shop-cards__field {
+    display: grid;
+    gap: 32px 16px;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+}
+
+.shop-cards__item {
+    border-radius: 8px;
+    background-color: white;
+    box-shadow: 4px 4px 4px var(--shadow);
+}
+
+.shop-card__head {
+    height: 200px;
+
+    >img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 8px 8px 0 0;
+    }
+}
+
+.shop-card__body {
+    padding: 24px;
+    background-color: beigrgb(79, 79, 69)
+}
+
+.shop_name {
+    margin-bottom: 8px;
+}
+
+.buttons {
+    display: flex;
+    justify-content: space-between;
+    text-align: baseline;
+
+    .fav_btn {
+        border: none;
+        background: none;
+        width: 56px;
+        height: 56px;
+        transform: translateY(10px);
+        cursor: pointer;
+
+        >img {
+            width: 100%;
+            object-fit: cover;
+        }
+    }
+}
+
+.shop_detail {
+    text-decoration: none;
+    padding: 8px 20px;
+    margin-top: 20px;
+    border-radius: 6px;
+    height: 40px;
+    color: white;
+    background-color: #305dff;
+}

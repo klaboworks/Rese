@@ -11,6 +11,11 @@ class Shop extends Model
 
     protected $fillable = ['shop_name',  'area_id', 'genre_id', 'shop_description', 'shop_image'];
 
+    public function favorites()
+    {
+        return $this->hasMany(Favorite::class);
+    }
+
     public function area()
     {
         return $this->belongsTo(Area::class);

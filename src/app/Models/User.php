@@ -63,4 +63,17 @@ class User extends Authenticatable
             // ->where('shop_id', 5)
             ->get();
     }
+
+    public function getFavoriteShop()
+    {
+        return $this
+            ->belongsToMany(Shop::class, 'favorites');
+    }
+
+    public function getReservedShop()
+    {
+        return $this
+            ->belongsToMany(Shop::class, 'reservations')
+            ->withPivot('date', 'time', 'number');
+    }
 }

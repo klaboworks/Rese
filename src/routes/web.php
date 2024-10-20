@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ShopController;
 use App\Http\Controllers\ShopManagementController;
+use App\Http\Controllers\UserController;
 
 Route::get('/', [ShopController::class, 'index'])->name('shop.index');
 Route::get('/menu', [ShopController::class, 'menu'])->name('shop.menu');
@@ -12,6 +13,7 @@ Route::get('/search', [ShopController::class, 'search'])->name('shop.search');
 Route::middleware('auth')->group(function () {
     Route::post('/', [ShopController::class, 'favorite'])->name('shop.fav');
     Route::post('/detail/{shop}', [ShopController::class, 'reserve'])->name('shop.reserve');
+    Route::get('/mypage', [UserController::class, 'index'])->name('user.mypage');
 });
 
 Route::group(['prefix' => 'admin'], function () {

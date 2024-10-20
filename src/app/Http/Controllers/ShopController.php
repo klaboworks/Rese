@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use App\Models\Area;
 use App\Models\Genre;
 use App\Models\Shop;
@@ -13,10 +14,17 @@ class ShopController extends Controller
 {
     public function index()
     {
+        if (Auth::check()) {
+            $user = Auth::user()->id;
+            $fav = Favorite::where('user_id', $user)->first();
+            $areas = Area::all();
+            $genres = Genre::all();
+            $shops = Shop::with('area', 'genre')->get();
+            return view('index', compact('areas', 'genres', 'shops', 'fav'));
+        }
         $areas = Area::all();
         $genres = Genre::all();
         $shops = Shop::with('area', 'genre')->get();
-        // dd($shops);
         return view('index', compact('areas', 'genres', 'shops'));
     }
 
@@ -27,7 +35,6 @@ class ShopController extends Controller
 
     public function search(Request $request)
     {
-        // dd($request);
         $areas = Area::all();
         $genres = Genre::all();
         $shops = Shop::with('area', 'genre')
@@ -45,10 +52,19 @@ class ShopController extends Controller
 
     public function favorite(Request $request)
     {
-        Favorite::create([
-            'user_id' => $request->user_id,
-            'shop_id' => $request->shop_id,
-        ]);
+        $fav = Favorite::where('user_id', $request->user_id)
+            ->where('shop_id', $request->shop_id)
+            ->latest()->first();
+
+        if ($fav) {
+            Favorite::find($fav)->first()->delete();
+        } else {
+
+            Favorite::create([
+                'user_id' => $request->user_id,
+                'shop_id' => $request->shop_id,
+            ]);
+        }
         return redirect()->route('shop.index');
     }
 

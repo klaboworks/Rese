@@ -4,11 +4,19 @@
     <link rel="stylesheet" href="{{ asset('css/index.css') }}">
 @endsection
 
-@section('title','飲食店一覧')
+@section('title', '飲食店一覧')
 
 @section('content')
     <section class="index">
         <div class="index__inner">
+
+            {{-- 確認用 --}}
+            @if (Auth::check())
+                {{ Auth::user()->name }}
+                {{ $fav }}
+            @endif
+            {{-- 後で消す --}}
+
             <div class="index__heading">
                 <x-menu-box />
                 <div class="shop-search">
@@ -48,10 +56,11 @@
                                         @csrf
                                         @if (Auth::check())
                                             <input type="hidden" name='user_id' value="{{ Auth::user()->id }}">
+                                            <input type="hidden" name='shop_id' value="{{ $shop->id }}">
+                                            <button class="fav_btn"><img
+                                                    src="{{ $fav ? asset('icons/fav_active.png') : asset('icons/fav_disabled.png') }}"
+                                                    alt=""></button>
                                         @endif
-                                        <input type="hidden" name='shop_id' value="{{ $shop->id }}">
-                                        <button class="fav_btn"><img src="{{ asset('icons/fav_active.png') }}"
-                                                alt=""></button>
                                     </form>
                                 </div>
                             </div>

@@ -45,15 +45,20 @@ class User extends Authenticatable
         ];
     }
 
+    public function favorites()
+    {
+        return $this->hasMany(Favorite::class);
+    }
+
     public function reservations()
     {
-        return $this->hasmany(Reservation::class);
+        return $this->hasMany(Reservation::class);
     }
 
     public function getReservation()
     {
         return $this
-            ->hasmany(Reservation::class)
+            ->hasMany(Reservation::class)
             ->where('user_id', $this->id)
             // ->where('shop_id', 5)
             ->get();

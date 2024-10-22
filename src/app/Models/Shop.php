@@ -46,4 +46,15 @@ class Shop extends Model
             $query->where('shop_name', 'like', '%' . $keyword . '%');
         }
     }
+
+    public function hasFavorite($user_id)
+    {
+        $favorite = Favorite::where('user_id', $user_id)
+            ->where('shop_id', $this->id)
+            ->first();
+        if ($favorite) {
+            return true;
+        }
+        return false;
+    }
 }

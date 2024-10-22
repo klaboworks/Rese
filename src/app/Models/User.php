@@ -67,7 +67,8 @@ class User extends Authenticatable
     public function getFavoriteShop()
     {
         return $this
-            ->belongsToMany(Shop::class, 'favorites');
+            ->belongsToMany(Shop::class, 'favorites')
+            ->orderByPivot('shop_id');
     }
 
     public function getReservedShop()

@@ -83,11 +83,9 @@
                                             @csrf
                                             <input type="hidden" name='user_id' value="{{ Auth::user()->id }}">
                                             <input type="hidden" name='shop_id' value="{{ $favorite_shop->id }}">
-                                            <button class="fav_btn"><img src="{{ asset('icons/fav_disabled.png') }}"
+                                            <button class="fav_btn"><img
+                                                    src="{{ $favorite_shop->hasFavorite(Auth::user()->id) ? asset('icons/fav_active.png') : asset('icons/fav_disabled.png') }}"
                                                     alt=""></button>
-                                            {{-- <button class="fav_btn"><img
-                                                    src="{{ $fav ? asset('icons/fav_active.png') : asset('icons/fav_disabled.png') }}"
-                                                    alt=""></button> --}}
                                         </form>
                                     </div>
                                 </div>

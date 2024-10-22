@@ -10,12 +10,9 @@
     <section class="index">
         <div class="index__inner">
 
-            {{-- 確認用 --}}
             @if (Auth::check())
-                {{ Auth::user()->name }}
-                {{ $fav }}
+                <p>{{ Auth::user()->name }}さんログイン中</p>
             @endif
-            {{-- 後で消す --}}
 
             <div class="index__heading">
                 <x-menu-box />
@@ -58,7 +55,10 @@
                                             <input type="hidden" name='user_id' value="{{ Auth::user()->id }}">
                                             <input type="hidden" name='shop_id' value="{{ $shop->id }}">
                                             <button class="fav_btn"><img
-                                                    src="{{ $fav ? asset('icons/fav_active.png') : asset('icons/fav_disabled.png') }}"
+                                                    src="{{ $shop->hasFavorite(Auth::user()->id) ? asset('icons/fav_active.png') : asset('icons/fav_disabled.png') }}"
+                                                    alt=""></button>
+                                        @else
+                                            <button class="fav_btn"><img src="{{ asset('icons/fav_disabled.png') }}"
                                                     alt=""></button>
                                         @endif
                                     </form>

@@ -14,14 +14,6 @@ class ShopController extends Controller
 {
     public function index()
     {
-        if (Auth::check()) {
-            $user = Auth::user()->id;
-            $fav = Favorite::where('user_id', $user)->first();
-            $areas = Area::all();
-            $genres = Genre::all();
-            $shops = Shop::with('area', 'genre')->get();
-            return view('index', compact('areas', 'genres', 'shops', 'fav'));
-        }
         $areas = Area::all();
         $genres = Genre::all();
         $shops = Shop::with('area', 'genre')->get();
@@ -48,24 +40,6 @@ class ShopController extends Controller
     public function detail(Shop $shop)
     {
         return view('detail', ['shop' => $shop]);
-    }
-
-    public function favorite(Request $request)
-    {
-        $fav = Favorite::where('user_id', $request->user_id)
-            ->where('shop_id', $request->shop_id)
-            ->latest()->first();
-
-        if ($fav) {
-            Favorite::find($fav)->first()->delete();
-        } else {
-
-            Favorite::create([
-                'user_id' => $request->user_id,
-                'shop_id' => $request->shop_id,
-            ]);
-        }
-        return redirect()->route('shop.index');
     }
 
     public function reserve(Request $request)

@@ -13,7 +13,7 @@
                 <div class="btn-menu"><x-menu-box /></div>
                 <div class="shop-info">
                     <div class="shop-info__heading">
-                        <a href="{{ route('shop.index') }}" class="btn-back">&lt</a>
+                        <input type="button" onclick="history.back()" value="&lt" class="btn-back">
                         <h2 class="shop_name">{{ $shop->shop_name }}</h2>
                     </div>
                     <div class="shop_image">
@@ -67,23 +67,6 @@
                     </form>
                     <div class="reservations">
                         @if (Auth::check())
-                            @php
-                                $reservations = Auth::user()->getReservation();
-                            @endphp
-                            @foreach ($reservations as $reservation)
-                                <p class="reservation_shop">
-                                    {{ $reservation->shop_id ?? '' }}
-                                </p>
-                                <p class="reservation_date">
-                                    {{ $reservation->date ?? '' }}
-                                </p>
-                                <p class="reservation_time">
-                                    {{ $reservation->time ?? '' }}
-                                </p>
-                                <p class="reservation_number">
-                                    {{ $reservation->number . '人' ?? '' }}
-                                </p>
-                            @endforeach
                         @endif
                     </div>
                 </div>

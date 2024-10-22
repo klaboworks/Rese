@@ -11,7 +11,7 @@ Route::get('/detail/{shop}', [ShopController::class, 'detail'])->name('shop.deta
 Route::get('/search', [ShopController::class, 'search'])->name('shop.search');
 
 Route::middleware('auth')->group(function () {
-    Route::post('/', [ShopController::class, 'favorite'])->name('shop.fav');
+    Route::post('/', [UserController::class, 'favorite'])->name('shop.fav');
     Route::post('/detail/{shop}', [ShopController::class, 'reserve'])->name('shop.reserve');
     Route::get('/mypage', [UserController::class, 'index'])->name('user.mypage');
 });

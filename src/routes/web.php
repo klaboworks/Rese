@@ -11,9 +11,9 @@ Route::get('/detail/{shop}', [ShopController::class, 'detail'])->name('shop.deta
 Route::get('/search', [ShopController::class, 'search'])->name('shop.search');
 
 Route::middleware('auth')->group(function () {
-    Route::post('/', [UserController::class, 'favorite'])->name('shop.fav');
-    Route::post('/detail/{shop}', [ShopController::class, 'reserve'])->name('shop.reserve');
     Route::get('/mypage', [UserController::class, 'index'])->name('user.mypage');
+    Route::post('/favorite', [UserController::class, 'favorite'])->name('shop.fav');
+    Route::post('/detail/{shop}', [UserController::class, 'reserve'])->name('shop.reserve');
 });
 
 Route::group(['prefix' => 'admin'], function () {

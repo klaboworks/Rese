@@ -55,15 +55,6 @@ class User extends Authenticatable
         return $this->hasMany(Reservation::class);
     }
 
-    public function getReservation()
-    {
-        return $this
-            ->hasMany(Reservation::class)
-            ->where('user_id', $this->id)
-            // ->where('shop_id', 5)
-            ->get();
-    }
-
     public function getFavoriteShop()
     {
         return $this

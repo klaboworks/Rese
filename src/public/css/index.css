@@ -15,14 +15,24 @@
 }
 
 .index__heading {
-    display: flex;
-    justify-content: space-between;
-    vertical-align: top;
-    padding-bottom: 32px;
+    @media(min-width: 768px) {
+        display: flex;
+        justify-content: space-between;
+        vertical-align: top;
+    }
+
+    margin-bottom: 32px;
 }
 
-.shop-search>span {
-    border-radius: 8px;
+.shop-search {
+    width: 100%;
+    max-width: 800px;
+    margin-top: 24px;
+
+    @media(min-width: 768px) {
+        width: 50vw;
+        margin:0;
+    }
 }
 
 .shop-search__form {
@@ -39,17 +49,22 @@
 
 [class$=__shop_area] {
     border-radius: 8px 0 0 8px;
+    width: 25%;
+}
+
+[class$=__shop_genre] {
+    width: 25%;
 }
 
 [class$=__shop_name] {
-    width: 400px;
+    width: 50%;
     border-radius: 0 8px 8px 0;
 }
 
 .shop-cards__field {
     display: grid;
     gap: 32px 16px;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
 }
 
 .shop-cards__item {

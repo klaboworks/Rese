@@ -2,6 +2,7 @@
 
 @section('css')
     <link rel="stylesheet" href="{{ asset('css/index.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/menu.css') }}">
 @endsection
 
 @section('title', '飲食店一覧')
@@ -15,7 +16,7 @@
             @endif
 
             <div class="index__heading">
-                <x-menu-box />
+                <x-menu />
                 <div class="shop-search">
                     <form action="{{ route('shop.search') }}" method="GET" class="shop-search__form">
                         <select name="shop_area" id="" class="form-element__shop_area">

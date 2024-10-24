@@ -21,6 +21,6 @@ class MenuBox extends Component
      */
     public function render(): View|Closure|string
     {
-        return view('components.menu-box');
+        return view('components.menu');
     }
 }

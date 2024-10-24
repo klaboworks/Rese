@@ -7,7 +7,6 @@ use App\Http\Controllers\ShopManagementController;
 use App\Http\Controllers\UserController;
 
 Route::get('/', [ShopController::class, 'index'])->name('shop.index');
-Route::get('/menu', [ShopController::class, 'menu'])->name('shop.menu');
 Route::get('/detail/{shop}', [ShopController::class, 'detail'])->name('shop.detail');
 Route::get('/search', [ShopController::class, 'search'])->name('shop.search');
 

@@ -4,13 +4,14 @@
 
 @section('css')
     <link rel="stylesheet" href="{{ asset('css/mypage.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/menu.css') }}">
 @endsection
 
 @section('content')
     <section class="mypage">
         <div class="mypage__inner">
             <div class="mypage__heading">
-                <x-menu-box />
+                <x-menu />
             </div>
             <div class="mypage__user_name">
                 <h2 class="user_name__text">

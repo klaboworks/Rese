@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminLoginController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ShopController;
 use App\Http\Controllers\ShopManagementController;
@@ -16,8 +17,18 @@ Route::middleware('auth')->group(function () {
     Route::post('/detail/{shop}', [UserController::class, 'reserve'])->name('shop.reserve');
 });
 
-Route::group(['prefix' => 'admin'], function () {
-    Route::get('/shop', [ShopManagementController::class, 'index'])->name('admin.shop.index');
-    Route::get('/shop/create', [ShopManagementController::class, 'create'])->name('admin.shop.create');
-    Route::post('/shop/store', [ShopManagementController::class, 'store'])->name('admin.shop.store');
+// 管理者用ルーティング
+Route::get('/admin-login', [AdminLoginController::class, 'create'])->name('admin.login');
+Route::post('/admin-login', [AdminLoginController::class, 'store'])->name('admin.login.store');
+Route::delete('/admin-login', [AdminLoginController::class, 'destroy'])->name('admin.login.destroy');
+
+Route::middleware('auth:admin')->group(function () {
+    Route::group(['prefix' => 'admin'], function () {
+        Route::get('/shop', [ShopManagementController::class, 'index'])->name('admin.shop.index');
+        Route::get('/shop/create', [ShopManagementController::class, 'create'])->name('admin.shop.create');
+        Route::post('/shop/store', [ShopManagementController::class, 'store'])->name('admin.shop.store');
+        Route::get('/', function () {
+            return view('admin.top');
+        })->name('admin.top');
+    });
 });

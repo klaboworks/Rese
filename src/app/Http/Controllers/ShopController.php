@@ -18,11 +18,6 @@ class ShopController extends Controller
         return view('index', compact('areas', 'genres', 'shops'));
     }
 
-    public function menu()
-    {
-        return view('menu');
-    }
-
     public function search(Request $request)
     {
         $areas = Area::all();

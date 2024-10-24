@@ -142,6 +142,21 @@ p {
     background-color: #5289ff;
 }
 
-.text {
-    width: 500px;
+.reservation_confirm {
+    background-color: #5e77ff;
+    margin: 0 24px;
+    padding: 12px 0;
+    border-radius: 8px;
+}
+
+.reserbations_table {
+    color: white;
+    width: 100%;
+    text-align: left;
+
+    th {
+        width: 32%;
+        padding: 8px 24px;
+        font-weight: normal;
+    }
 }

@@ -2,7 +2,9 @@
 
 @section('css')
     <link rel="stylesheet" href="{{ asset('css/detail.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/menu.css') }}">
 @endsection
+<script src="{{ asset('js/reservation.js') }}" defer></script>
 
 @section('title', '{{ $shop->shop_name }}')
 
@@ -10,7 +12,7 @@
     <section class="shop-detail">
         <div class="shop-detail__inner">
             <div class="detail-block__left">
-                <div class="btn-menu"><x-menu-box /></div>
+                <div class="btn-menu"><x-menu /></div>
                 <div class="shop-info">
                     <div class="shop-info__heading">
                         <input type="button" onclick="history.back()" value="&lt" class="btn-back">
@@ -37,10 +39,10 @@
                         <input type="hidden" name="shop_id" value="{{ $shop->id }}">
                         <ul class="form-elements">
                             <li class="form__date">
-                                <input type="date" name="date">
+                                <input type="date" name="date" class="select_date">
                             </li>
                             <li class="form__time full">
-                                <select type="time" name="time" class="full">
+                                <select type="time" name="time" class="select_time full">
                                     <option value="" selected disabled>時間を選択してください</option>
                                     <option value="17:00">17:00</option>
                                     <option value="17:30">17:30</option>
@@ -53,7 +55,7 @@
                                 </select>
                             </li>
                             <li class="form__number full">
-                                <select type="number" name="number" class="full">
+                                <select type="number" name="number" class="select_number full">
                                     <option value="" selected disabled>人数を選択してください</option>
                                     <option value="1">1人</option>
                                     <option value="2">2人</option>
@@ -65,9 +67,27 @@
                         </ul>
                         <button class="form-btn">予約する</button>
                     </form>
-                    <div class="reservations">
-                        @if (Auth::check())
-                        @endif
+                    <div class="reservation_confirm">
+                        <table class="reserbations_table">
+                            <tbody>
+                                <tr>
+                                    <th>Shop</th>
+                                    <td>{{ $shop->shop_name }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Date</th>
+                                    <td class="reserved_date"></td>
+                                </tr>
+                                <tr>
+                                    <th>Time</th>
+                                    <td class="reserved_time"></td>
+                                </tr>
+                                <tr>
+                                    <th>Number</th>
+                                    <td class="reserved_number"></td>
+                                </tr>
+                            </tbody>
+                        </table>
                     </div>
                 </div>
             </div>

@@ -2,13 +2,14 @@
 
 @section('css')
     <link rel="stylesheet" href="{{ asset('css/auth.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/menu.css') }}">
 @endsection
 
 @section('content')
     <section class="login">
         <div class="login__inner">
             <div class="login__heading">
-                <x-menu-box />
+                <x-menu />
             </div>
             <div class="login__body">
                 <div class="login__panel">

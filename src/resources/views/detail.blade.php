@@ -39,30 +39,45 @@
                         <input type="hidden" name="shop_id" value="{{ $shop->id }}">
                         <ul class="form-elements">
                             <li class="form__date">
-                                <input type="date" name="date" class="select_date">
+                                <input type="date" name="date" class="select_date" value={{ old('date') }}>
+                                @error('date')
+                                    <div class="error-message">
+                                        {{ $message }}
+                                    </div>
+                                @enderror
                             </li>
                             <li class="form__time full">
-                                <select type="time" name="time" class="select_time full">
+                                <select type="time" name="time" class="select_time full" value={{ old('time') }}>
                                     <option value="" selected disabled>時間を選択してください</option>
-                                    <option value="17:00">17:00</option>
-                                    <option value="17:30">17:30</option>
-                                    <option value="18:00">18:00</option>
-                                    <option value="18:30">18:30</option>
-                                    <option value="19:00">19:00</option>
-                                    <option value="19:30">19:30</option>
-                                    <option value="20:00">20:00</option>
-                                    <option value="20:30">20:30</option>
+                                    <option value="17:00" @if (old('time') == '17:00') selected @endif>17:00</option>
+                                    <option value="17:30" @if (old('time') == '17:30') selected @endif>17:30</option>
+                                    <option value="18:00" @if (old('time') == '18:00') selected @endif>18:00</option>
+                                    <option value="18:30" @if (old('time') == '18:30') selected @endif>18:30</option>
+                                    <option value="19:00" @if (old('time') == '19:00') selected @endif>19:00</option>
+                                    <option value="19:30" @if (old('time') == '19:30') selected @endif>19:30</option>
+                                    <option value="20:00" @if (old('time') == '20:00') selected @endif>20:00</option>
+                                    <option value="20:30" @if (old('time') == '20:30') selected @endif>20:30</option>
                                 </select>
+                                @error('time')
+                                    <div class="error-message">
+                                        {{ $message }}
+                                    </div>
+                                @enderror
                             </li>
                             <li class="form__number full">
-                                <select type="number" name="number" class="select_number full">
+                                <select type="number" name="number" class="select_number full" value={{ old('number') }}>
                                     <option value="" selected disabled>人数を選択してください</option>
-                                    <option value="1">1人</option>
-                                    <option value="2">2人</option>
-                                    <option value="3">3人</option>
-                                    <option value="4">4人</option>
-                                    <option value="5">5人以上</option>
+                                    <option value="1" @if (old('number') == '1') selected @endif>1人</option>
+                                    <option value="2" @if (old('number') == '2') selected @endif>2人</option>
+                                    <option value="3" @if (old('number') == '3') selected @endif>3人</option>
+                                    <option value="4" @if (old('number') == '4') selected @endif>4人</option>
+                                    <option value="5" @if (old('number') == '5') selected @endif>5人以上</option>
                                 </select>
+                                @error('number')
+                                    <div class="error-message">
+                                        {{ $message }}
+                                    </div>
+                                @enderror
                             </li>
                         </ul>
                         <button class="form-btn">予約する</button>

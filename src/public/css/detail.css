@@ -160,3 +160,10 @@ p {
         font-weight: normal;
     }
 }
+
+.error-message {
+    padding: 8px 8px 0;
+    color: #ffd298;
+    border-bottom: solid 1px #ffd298;
+    max-width: 240px;
+}

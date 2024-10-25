@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\ReservationRequest;
 use Illuminate\Http\Request;
 use App\Models\Shop;
 use App\Models\Favorite;
@@ -33,7 +34,7 @@ class UserController extends Controller
         return redirect()->back();
     }
 
-    public function reserve(Request $request)
+    public function reserve(ReservationRequest $request)
     {
         Reservation::create([
             'user_id' => $request->user_id,

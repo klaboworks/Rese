@@ -31,10 +31,11 @@
     background-color: white;
     inset: 0;
     z-index: 1000;
+
 }
 
-.hidden {
-    transform: translateX(-100%);
+.menu_panel_hidden {
+transform: translateX(-100%);
 }
 
 

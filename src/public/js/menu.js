@@ -5,7 +5,7 @@
 
     menu_boxes.forEach((menu_box) => {
         menu_box.addEventListener('click', () => {
-            menu_panel.classList.toggle('hidden');
+            menu_panel.classList.toggle('menu_panel_hidden');
         });
     });
 }

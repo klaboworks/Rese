@@ -1,4 +1,3 @@
-<script src="{{ asset('js/menu.js') }} " defer></script>
 <div class="site__menu">
     <div class="menu_box">
         <img src="{{ asset('icons/menu_button.png') }}" alt="">
@@ -6,7 +5,7 @@
     <h1 class="site__ttl">Rese</h1>
 </div>
 
-<section class="menu_panel hidden">
+<section class="menu_panel menu_panel_hidden">
     <div class="menu__inner">
         <div class="menu_box"><img src="{{ asset('icons/menu_button_close.png') }}" alt=""></div>
 

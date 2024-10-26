@@ -1,10 +1,14 @@
 @extends('layouts.app')
 
 @section('css')
-    <link rel="stylesheet" href="{{ asset('css/detail.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/menu.css') }}">
+<link rel="stylesheet" href="{{ asset('css/detail.css') }}">
+<link rel="stylesheet" href="{{ asset('css/menu.css') }}">
 @endsection
-<script src="{{ asset('js/reservation.js') }}" defer></script>
+
+@section('script')
+    <script src="{{ asset('js/menu.js') }} " defer></script>
+    <script src="{{ asset('js/reservation.js') }} " defer></script>
+@endsection
 
 @section('title', '{{ $shop->shop_name }}')
 
@@ -39,7 +43,8 @@
                         <input type="hidden" name="shop_id" value="{{ $shop->id }}">
                         <ul class="form-elements">
                             <li class="form__date">
-                                <input type="date" name="date" class="select_date" value={{ old('date') }}>
+                                <input type="date" name="date" id="datepicker2" min="" class="select_date"
+                                    value={{ old('date') }}>
                                 @error('date')
                                     <div class="error-message">
                                         {{ $message }}

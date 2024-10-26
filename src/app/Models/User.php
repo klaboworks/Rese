@@ -66,6 +66,6 @@ class User extends Authenticatable
     {
         return $this
             ->belongsToMany(Shop::class, 'reservations')
-            ->withPivot('date', 'time', 'number');
+            ->withPivot('id','date', 'time', 'number');
     }
 }

@@ -96,15 +96,15 @@
                                 </tr>
                                 <tr>
                                     <th>Date</th>
-                                    <td class="reserved_date"></td>
+                                    <td class="reserved_date">{{old('date')}}</td>
                                 </tr>
                                 <tr>
                                     <th>Time</th>
-                                    <td class="reserved_time"></td>
+                                    <td class="reserved_time">{{old('time')}}</td>
                                 </tr>
                                 <tr>
                                     <th>Number</th>
-                                    <td class="reserved_number"></td>
+                                    <td class="reserved_number">{{old('number')}}</td>
                                 </tr>
                             </tbody>
                         </table>

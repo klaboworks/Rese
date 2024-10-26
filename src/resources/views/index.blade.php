@@ -5,6 +5,10 @@
     <link rel="stylesheet" href="{{ asset('css/menu.css') }}">
 @endsection
 
+@section('script')
+    <script src="{{ asset('js/menu.js') }} " defer></script>
+@endsection
+
 @section('title', '飲食店一覧')
 
 @section('content')

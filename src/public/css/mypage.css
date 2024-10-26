@@ -38,7 +38,7 @@
     margin-bottom: 40px;
 }
 
-.reservation__field {
+[class*=reservation__field] {
     width: 100%;
 }
 
@@ -67,10 +67,29 @@
         display: inline-block;
     }
 
-    button {
+    .change_buttons {
         position: absolute;
         top: 0;
         right: 0;
+
+        >button {
+            border: none;
+            padding: 4px 12px;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-left: 12px;
+        }
+
+        .update_btn {
+            color: white;
+            background-color: #5e77ff;
+        }
+
+        .cancel_btn {
+            color: white;
+            background-color: #4553ff;
+            text-decoration: underline;
+        }
     }
 }
 
@@ -151,4 +170,170 @@
     height: 40px;
     color: white;
     background-color: #305dff;
+}
+
+.message {
+    width: 100%;
+    padding: 40px 0;
+    text-align: center;
+    /* border-radius: 40px; */
+    position: fixed;
+    color: white;
+    background-color: #4555ff;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 110;
+}
+
+/* 予約アップデートパネル */
+.reservation__field--update {
+    position: fixed;
+    background-color: rgba(32, 30, 37, 0.8);
+    inset: 0;
+    z-index: 100;
+
+}
+
+.reservation_update_hidden {
+    transform: translateX(100%);
+}
+
+.reservation__panel--update {
+    width: calc(100% - 40px);
+    max-width: 400px;
+    margin: 20vh auto 0;
+    padding: 24px;
+    margin-bottom: 32px;
+    border-radius: 4px;
+    background-color: var(--blue);
+}
+
+.panel__heading--update {
+    text-align: center;
+    font-size: 24px;
+    color: white;
+    padding: 24px 0;
+}
+
+.panel__body--update {
+    width: 100%;
+    text-align: left;
+
+    >tbody>tr>th {
+        width: 25%;
+    }
+
+    th,
+    td {
+        color: white;
+        font-size: 16px;
+        font-weight: normal;
+        height: 60px;
+    }
+}
+
+.full {
+    width: 100%;
+}
+
+[class^="select"] {
+    padding: 6px;
+    border: none;
+    border-radius: 6px;
+}
+
+.update-commit__btn {
+    display: block;
+    margin: 20px auto;
+    padding: 12px;
+    border: none;
+    border-radius: 6px;
+    color: white;
+    background-color: #8496ff;
+    cursor: pointer;
+}
+
+.update_cancel {
+    cursor: pointer;
+    text-align: center;
+    color: white;
+    text-decoration: underline;
+    line-height: 40px;
+}
+
+/* 予約キャンセルパネル */
+.reservation__field--cancel {
+    position: fixed;
+    background-color: rgba(32, 30, 37, 0.8);
+    inset: 0;
+    z-index: 100;
+
+}
+
+.reservation_cancel_hidden {
+    transform: translateX(100%);
+}
+
+.reservation__panel--cancel {
+    width: calc(100% - 40px);
+    max-width: 400px;
+    margin: 20vh auto 0;
+    padding: 24px;
+    margin-bottom: 32px;
+    border-radius: 4px;
+    background-color: var(--blue);
+}
+
+.panel__heading--cancel {
+    text-align: center;
+    font-size: 24px;
+    color: white;
+    padding: 24px 0;
+}
+
+.panel__body--cancel {
+    width: 100%;
+    text-align: left;
+
+    >tbody>tr>th {
+        width: 25%;
+    }
+
+    th,
+    td {
+        color: white;
+        font-size: 16px;
+        font-weight: normal;
+        height: 60px;
+    }
+}
+
+.full {
+    width: 100%;
+}
+
+[class^="select"] {
+    padding: 6px;
+    border: none;
+    border-radius: 6px;
+}
+
+.cancel-commit__btn {
+    display: block;
+    margin: 20px auto;
+    padding: 12px;
+    border: none;
+    border-radius: 6px;
+    color: white;
+    background-color: #8496ff;
+    cursor: pointer;
+}
+
+.cancel_cancel {
+    cursor: pointer;
+    text-align: center;
+    color: white;
+    text-decoration: underline;
+    line-height: 40px;
 }

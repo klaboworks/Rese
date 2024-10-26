@@ -46,4 +46,17 @@ class UserController extends Controller
 
         return view('thanks.reserved');
     }
+
+    public function updateReserve(Request $request)
+    {
+        $newReservation = $request->only(['date', 'time', 'number']);
+        Reservation::find($request->id)->update($newReservation);
+        return redirect()->route('user.mypage')->with('message', '予約を変更しました');
+    }
+
+    public function cancelReserve(Request $request)
+    {
+        Reservation::find($request->id)->delete();
+        return redirect()->route('user.mypage')->with('message', '予約をキャンセルしました');
+    }
 }

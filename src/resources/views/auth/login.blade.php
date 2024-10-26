@@ -5,6 +5,10 @@
     <link rel="stylesheet" href="{{ asset('css/menu.css') }}">
 @endsection
 
+@section('script')
+    <script src="{{ asset('js/menu.js') }} " defer></script>
+@endsection
+
 @section('content')
     <section class="login">
         <div class="login__inner">

@@ -12,6 +12,8 @@ Route::get('/search', [ShopController::class, 'search'])->name('shop.search');
 
 Route::middleware('auth')->group(function () {
     Route::get('/mypage', [UserController::class, 'index'])->name('user.mypage');
+    Route::patch('/mypage', [UserController::class, 'updateReserve'])->name('shop.reserve.update');
+    Route::delete('/mypage', [UserController::class, 'cancelReserve'])->name('shop.reserve.cancel');
     Route::post('/favorite', [UserController::class, 'favorite'])->name('shop.fav');
     Route::post('/detail/{shop}', [UserController::class, 'reserve'])->name('shop.reserve');
 });

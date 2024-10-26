@@ -1,5 +1,16 @@
 'use strict';
 {
+    // 予約時「今日以降」のみ選択設定
+    window.onload = function(){
+        let getToday = new Date();
+        let y = getToday.getFullYear();
+        let m = getToday.getMonth() + 1;
+        let d = getToday.getDate();
+        let today = y + "-" + m.toString().padStart(2,'0') + "-" + d.toString().padStart(2,'0');
+        document.getElementById("datepicker2").setAttribute("min",today);
+    }
+
+    // 予約確認リアルタイム表示
     const select_date = document.querySelector('input[class="select_date"]');
     const reserved_date = document.querySelector('.reserved_date');
 

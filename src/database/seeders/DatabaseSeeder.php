@@ -24,8 +24,6 @@ class DatabaseSeeder extends Seeder
             AreasTableSeeder::class,
             GenresTableSeeder::class,
             ShopsTableSeeder::class,
-            AdministratorsTableSeeder::class,
-            ManagersTableSeeder::class,
         ]);
     }
 }

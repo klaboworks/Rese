@@ -18,11 +18,6 @@ Route::middleware('auth')->group(function () {
     Route::post('/detail/{shop}', [UserController::class, 'reserve'])->name('shop.reserve');
 });
 
-// 管理者用ルーティング
-Route::get('/admin-login', [AdminLoginController::class, 'create'])->name('admin.login');
-Route::post('/admin-login', [AdminLoginController::class, 'store'])->name('admin.login.store');
-Route::delete('/admin-login', [AdminLoginController::class, 'destroy'])->name('admin.login.destroy');
-
 Route::middleware('auth:admin')->group(function () {
     Route::group(['prefix' => 'admin'], function () {
         Route::get('/shop', [ShopManagementController::class, 'index'])->name('admin.shop.index');

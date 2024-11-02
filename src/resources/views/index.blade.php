@@ -12,6 +12,9 @@
 @section('title', '飲食店一覧')
 
 @section('content')
+@canany(['admin','manage'])
+管理者だけ見れてれば正解
+@endcanany
     <section class="index">
         <div class="index__inner">
 

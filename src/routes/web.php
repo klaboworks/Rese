@@ -18,7 +18,7 @@ Route::middleware('auth')->group(function () {
     Route::post('/detail/{shop}', [UserController::class, 'reserve'])->name('shop.reserve');
 });
 
-Route::middleware('auth:admin')->group(function () {
+Route::middleware(['auth', 'can:admin'])->group(function () {
     Route::group(['prefix' => 'admin'], function () {
         Route::get('/shop', [ShopManagementController::class, 'index'])->name('admin.shop.index');
         Route::get('/shop/create', [ShopManagementController::class, 'create'])->name('admin.shop.create');

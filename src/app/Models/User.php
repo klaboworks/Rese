@@ -55,6 +55,11 @@ class User extends Authenticatable
         return $this->hasMany(Reservation::class);
     }
 
+    public function roles()
+    {
+        return $this->belongsToMany(Role::class);
+    }
+
     public function getFavoriteShop()
     {
         return $this
@@ -66,7 +71,7 @@ class User extends Authenticatable
     {
         return $this
             ->belongsToMany(Shop::class, 'reservations')
-            ->withPivot('id','date', 'time', 'number')
+            ->withPivot('id', 'date', 'time', 'number')
             ->orderByPivot('date')
             ->orderByPivot('time');
     }

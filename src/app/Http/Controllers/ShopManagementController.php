@@ -96,8 +96,13 @@ class ShopManagementController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Request $request, Shop $shop)
     {
-        //
+        if ($request->user()->cannot('update', $shop)) {
+            abort(403);
+        }
+
+        Shop::find($request->shop_id)->delete();
+        return redirect()->route('admin.shop.index');
     }
 }

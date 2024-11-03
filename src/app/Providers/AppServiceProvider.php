@@ -28,5 +28,14 @@ class AppServiceProvider extends ServiceProvider
             }
             return false;
         });
+
+        Gate::define('super-admin',function($user){
+            foreach ($user->roles as $role) {
+                if ($role->role_name == 'administrator') {
+                    return true;
+                }
+            }
+            return false;
+        });
     }
 }

@@ -25,6 +25,18 @@
         border: solid 1px var(--border);
     }
 
+    .td__id {
+        width: 5%;
+    }
+
+    .td__area_name {
+        width: 10%;
+    }
+
+    .td__genre_name {
+        width: 15%;
+    }
+
     .td__shop_description {
         width: 30%;
         text-align: left;
@@ -33,6 +45,10 @@
 
     .td__shop_image {
         width: 20%;
+    }
+
+    .td__setting{
+       width: 10%;
     }
 }
 

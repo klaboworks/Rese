@@ -16,8 +16,22 @@ class ShopManagementController extends Controller
      */
     public function index()
     {
-        $shops = Shop::with('area', 'genre')->get();
-        return view('admin.shop_index', compact('shops'));
+        $areas = Area::all();
+        $genres = Genre::all();
+        $shops = Shop::with('area', 'genre')->Paginate(5);
+        return view('admin.shop_index', compact('shops', 'areas', 'genres'));
+    }
+
+    public function search(Request $request)
+    {
+        $areas = Area::all();
+        $genres = Genre::all();
+        $shops = Shop::with('area', 'genre')
+            ->AreaSearch($request->shop_area)
+            ->GenreSearch($request->shop_genre)
+            ->KeywordSearch($request->shop_name)
+            ->Paginate(5);
+        return view('admin.shop_index', compact('areas', 'genres', 'shops'));
     }
 
     /**

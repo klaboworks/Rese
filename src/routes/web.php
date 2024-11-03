@@ -21,6 +21,7 @@ Route::middleware('auth')->group(function () {
 Route::middleware(['auth', 'can:admin'])->group(function () {
     Route::group(['prefix' => 'admin'], function () {
         Route::get('/shop', [ShopManagementController::class, 'index'])->name('admin.shop.index');
+        Route::get('/shop/search', [ShopManagementController::class, 'search'])->name('admin.shop.search');
         Route::get('/shop/create', [ShopManagementController::class, 'create'])->name('admin.shop.create');
         Route::post('/shop/store', [ShopManagementController::class, 'store'])->name('admin.shop.store');
         Route::get('/', function () {

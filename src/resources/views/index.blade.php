@@ -13,7 +13,20 @@
 
 @section('content')
     @canany(['admin', 'manage'])
-        <a href="{{ route('admin.shop.index') }}">管理画面へ</a>
+        <div class="admin_menu">
+            <div class="admin_menu__inner">
+                <div>
+                    {{ Auth::user()->name }}さんお疲れ様です！
+                </div>
+                <div class="admin_menu_link">
+                    <a href="{{ route('admin.shop.index') }}">管理画面へ</a>
+                    <form action="/logout" method="post">
+                        @csrf
+                        <button>ログアウト</button>
+                    </form>
+                </div>
+            </div>
+        </div>
     @endcanany
     <section class="index">
         <div class="index__inner">

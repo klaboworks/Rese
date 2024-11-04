@@ -24,6 +24,7 @@ Route::middleware(['auth', 'can:admin'])->group(function () {
         Route::get('/shop/search', [ShopManagementController::class, 'search'])->name('admin.shop.search');
         Route::get('/shop/create', [ShopManagementController::class, 'create'])->name('admin.shop.create');
         Route::post('/shop/store', [ShopManagementController::class, 'store'])->name('admin.shop.store');
+        Route::get('/shop/edit/{shop}', [ShopManagementController::class, 'edit'])->name('admin.shop.edit');
         Route::patch('/shop/update', [ShopManagementController::class, 'update'])->name('admin.shop.update');
         Route::delete('/shop/delete', [ShopManagementController::class, 'destroy'])->name('admin.shop.destroy');
     });

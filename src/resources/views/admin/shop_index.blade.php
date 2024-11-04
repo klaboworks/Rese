@@ -24,8 +24,8 @@
             <div class="heading__admin-menu">
                 <a href="{{ route('admin.shop.index') }}">店舗一覧</a>
                 <a class="btn__admin-menu" href="{{ route('admin.shop.create') }}">店舗を登録する</a>
-                <a href="{{ route('admin.shop.index') }}">店舗責任者一覧</a>
                 @can('super-admin')
+                    <a href="{{ route('admin.shop.index') }}">店舗責任者一覧</a>
                     <a class="btn__admin-menu" href="">店舗責任者を登録する</a>
                 @endcan
             </div>
@@ -90,10 +90,9 @@
                             </td>
                             <td class="td__setting">
                                 @can('update', $shop)
-                                    <form action="{{ route('admin.shop.update') }}">
-                                        @csrf
+                                    <a href="shop/edit/{{ $shop->id }}">
                                         <button class="btn__update_shop">更新</button>
-                                    </form>
+                                    </a>
                                     <form method="post" action="{{ route('admin.shop.destroy') }}">
                                         @csrf
                                         @method('delete')

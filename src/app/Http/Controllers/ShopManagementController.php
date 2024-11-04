@@ -80,17 +80,21 @@ class ShopManagementController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Shop $shop)
     {
-        //
+        $areas = Area::all();
+        $genres = Genre::all();
+        return view('admin.shop_edit', compact('shop', 'areas', 'genres'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request)
     {
-        //
+        $newShopData = $request->only(['shop_id', 'shop_name', 'area_id', 'genre_id', 'shop_description']);
+        Shop::find($request->shop_id)->update($newShopData);
+        return redirect()->route('admin.shop.index');
     }
 
     /**

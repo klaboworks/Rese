@@ -12,6 +12,9 @@
 @section('title', '飲食店一覧')
 
 @section('content')
+    @canany(['admin', 'manage'])
+        <a href="{{ route('admin.shop.index') }}">管理画面へ</a>
+    @endcanany
     <section class="index">
         <div class="index__inner">
 

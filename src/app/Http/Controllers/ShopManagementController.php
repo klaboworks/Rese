@@ -16,8 +16,22 @@ class ShopManagementController extends Controller
      */
     public function index()
     {
-        $shops = Shop::with('area', 'genre')->get();
-        return view('admin.shop_index', compact('shops'));
+        $areas = Area::all();
+        $genres = Genre::all();
+        $shops = Shop::with('area', 'genre')->Paginate(5);
+        return view('admin.shop_index', compact('shops', 'areas', 'genres'));
+    }
+
+    public function search(Request $request)
+    {
+        $areas = Area::all();
+        $genres = Genre::all();
+        $shops = Shop::with('area', 'genre')
+            ->AreaSearch($request->shop_area)
+            ->GenreSearch($request->shop_genre)
+            ->KeywordSearch($request->shop_name)
+            ->Paginate(5);
+        return view('admin.shop_index', compact('areas', 'genres', 'shops'));
     }
 
     /**
@@ -82,8 +96,13 @@ class ShopManagementController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Request $request, Shop $shop)
     {
-        //
+        if ($request->user()->cannot('update', $shop)) {
+            abort(403);
+        }
+
+        Shop::find($request->shop_id)->delete();
+        return redirect()->route('admin.shop.index');
     }
 }

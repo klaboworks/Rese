@@ -2,6 +2,60 @@
     --border: #dbbeb2;
 }
 
+.shop_index--headhing {
+
+    .heading__top-bar {
+        background-color: #e66f00;
+        padding: 4px 0;
+    }
+
+    .top-bar__inner {
+        max-width: 1360px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        color: white;
+
+        form {
+            display: inline;
+        }
+
+        button {
+            color: white;
+            border: none;
+            background: none;
+            text-decoration: underline;
+            margin-left: 12px;
+        }
+    }
+
+    >p {
+        text-align: center;
+        font-size: 16px;
+        color: white;
+        padding: 4px 0;
+        background-color: #e66f00;
+    }
+}
+
+.heading__navbar {
+    display: flex;
+    justify-content: space-between;
+    padding: 24px 0;
+    max-width: 1360px;
+    margin: 0 auto;
+}
+
+.btn__admin-menu {
+    border: solid 1px rgb(105, 105, 105);
+    border-radius: 2px;
+    background-color: #ececec;
+    padding: 2px 8px;
+    text-decoration: none;
+    color: black;
+    margin: 0 12px;
+}
+
 .shop_index__inner {
     max-width: 1360px;
     margin: 0 auto;
@@ -25,6 +79,20 @@
         border: solid 1px var(--border);
     }
 
+    .td__id {
+        width: 5%;
+    }
+
+    .td__shop_name {}
+
+    .td__area_name {
+        width: 10%;
+    }
+
+    .td__genre_name {
+        width: 10%;
+    }
+
     .td__shop_description {
         width: 30%;
         text-align: left;
@@ -33,6 +101,10 @@
 
     .td__shop_image {
         width: 20%;
+    }
+
+    .td__setting {
+        width: 10%;
     }
 }
 

@@ -2,6 +2,32 @@
     --shadow: #969696;
 }
 
+.admin_menu {
+    background-color: #305dff;
+    padding: 6px 0;
+    color: white;
+}
+
+.admin_menu__inner {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+
+    .admin_menu_link {
+        display: flex;
+
+        button {
+            color: white;
+            border: none;
+            background: none;
+            text-decoration: underline;
+            margin-left: 12px;
+            display: inline;
+        }
+    }
+}
+
 .index {
     min-height: 100vh;
     background-color: #eeeeee;
@@ -31,7 +57,7 @@
 
     @media(min-width: 768px) {
         width: 50vw;
-        margin:0;
+        margin: 0;
     }
 }
 
@@ -64,7 +90,10 @@
 .shop-cards__field {
     display: grid;
     gap: 32px 16px;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+
+    @media(min-width: 768px) {
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    }
 }
 
 .shop-cards__item {

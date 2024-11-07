@@ -30,6 +30,7 @@ class ShopManagementController extends Controller
             ->AreaSearch($request->shop_area)
             ->GenreSearch($request->shop_genre)
             ->KeywordSearch($request->shop_name)
+            ->UserIdSearch($request->user_id)
             ->Paginate(5);
         return view('admin.shop_index', compact('areas', 'genres', 'shops'));
     }

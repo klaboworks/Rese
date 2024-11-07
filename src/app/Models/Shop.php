@@ -9,11 +9,16 @@ class Shop extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['shop_name',  'area_id', 'genre_id', 'shop_description', 'shop_image'];
+    protected $fillable = ['shop_name',  'area_id', 'genre_id', 'user_id', 'shop_description', 'shop_image'];
 
     public function favorites()
     {
         return $this->hasMany(Favorite::class);
+    }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
     }
 
     public function area()
@@ -44,6 +49,13 @@ class Shop extends Model
     {
         if (!empty($keyword)) {
             $query->where('shop_name', 'like', '%' . $keyword . '%');
+        }
+    }
+
+    public function scopeUserIdSearch($query, $userId)
+    {
+        if (!empty($userId)) {
+            $query->where('user_id', $userId);
         }
     }
 

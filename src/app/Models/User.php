@@ -57,7 +57,7 @@ class User extends Authenticatable
 
     public function roles()
     {
-        return $this->belongsToMany(Role::class,'roles_users');
+        return $this->belongsToMany(Role::class, 'roles_users');
     }
 
     public function shops()
@@ -79,5 +79,13 @@ class User extends Authenticatable
             ->withPivot('id', 'date', 'time', 'number')
             ->orderByPivot('date')
             ->orderByPivot('time');
+    }
+
+    public function managersShop($manager_id)
+    {
+        return $this
+            ->hasMany(Shop::class)
+            ->where('user_id', $manager_id)
+            ->get();
     }
 }

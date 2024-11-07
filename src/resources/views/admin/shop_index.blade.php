@@ -20,6 +20,7 @@
                 </div>
             </div>
         </div>
+
         <div class="heading__navbar">
             <div class="heading__admin-menu">
                 <a href="{{ route('admin.shop.index') }}">店舗一覧</a>
@@ -29,6 +30,7 @@
                     <a class="btn__admin-menu" href="">店舗責任者を登録する</a>
                 @endcan
             </div>
+
             <div class="headhing__shop-search">
                 <form action="{{ route('admin.shop.search') }}" method="GET" class="shop-search__form">
                     <select name="shop_area" id="" class="form-element__shop_area">
@@ -45,6 +47,9 @@
                     </select>
                     <input type="text" name='shop_name' placeholder="Search..." class="form-element__shop_name">
                     <button>店舗検索</button>
+                    @cannot('super-admin')
+                        <button name='user_id' value=" {{ Auth::user()->id }}">担当店舗を表示する</button>
+                    @endcan
                 </form>
             </div>
         </div>

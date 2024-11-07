@@ -12,7 +12,7 @@
 @section('title', '飲食店一覧')
 
 @section('content')
-    @canany(['admin', 'manage'])
+    @canany(['admin'])
         <div class="admin_menu">
             <div class="admin_menu__inner">
                 <div>

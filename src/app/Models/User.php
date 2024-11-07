@@ -57,7 +57,12 @@ class User extends Authenticatable
 
     public function roles()
     {
-        return $this->belongsToMany(Role::class);
+        return $this->belongsToMany(Role::class,'roles_users');
+    }
+
+    public function shops()
+    {
+        return $this->hasMany(Shop::class);
     }
 
     public function getFavoriteShop()

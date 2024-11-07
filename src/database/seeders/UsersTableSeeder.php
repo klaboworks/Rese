@@ -34,6 +34,24 @@ class UsersTableSeeder extends Seeder
         DB::table('users')->insert($param);
 
         $param = [
+            'name' => 'Manager02',
+            'email' => 'manage02@com',
+            'password' => Hash::make('manage'),
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now(),
+        ];
+        DB::table('users')->insert($param);
+
+        $param = [
+            'name' => 'Manager03',
+            'email' => 'manage03@com',
+            'password' => Hash::make('manage'),
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now(),
+        ];
+        DB::table('users')->insert($param);
+
+        $param = [
             'name' => 'User01',
             'email' => 'user01@com',
             'password' => Hash::make('user'),

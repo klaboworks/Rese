@@ -95,7 +95,7 @@
                             </td>
                             <td class="td__setting">
                                 @can('update', $shop)
-                                    <a href="shop/edit/{{ $shop->id }}">
+                                    <a href="{{ route('admin.shop.edit', $shop->id) }}">
                                         <button class="btn__update_shop">更新</button>
                                     </a>
                                     <form method="post" action="{{ route('admin.shop.destroy') }}">
@@ -104,6 +104,9 @@
                                         <button class="btn__delete_shop">削除</button>
                                         <input type="hidden" name="shop_id" value="{{ $shop->id }}">
                                     </form>
+                                    <a href="{{ route('admin.shop.reservations', $shop->id) }}">
+                                        <button class="btn__confirm_reservations">予約確認</button>
+                                    </a>
                                 @endcan
                             </td>
                         </tr>

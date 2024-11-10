@@ -1,0 +1,70 @@
+:root {
+    --border: #dbbeb2;
+}
+
+.heading__top-bar {
+    background-color: #e66f00;
+    padding: 4px 0;
+}
+
+.top-bar__inner {
+    max-width: 1360px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    color: white;
+
+    form {
+        display: inline;
+    }
+
+    button {
+        color: white;
+        border: none;
+        background: none;
+        text-decoration: underline;
+        margin-left: 12px;
+    }
+}
+
+.shop_reservations__inner {
+    max-width: 1360px;
+    margin: 0 auto;
+}
+
+.shop_reservations__heading {
+    margin: 24px 0;
+    display: flex;
+    align-items: center;
+
+    >.shop_name {
+        font-size: 24px;
+        margin-left: 24px;
+    }
+
+    >.reservations_list {
+        font-size: 24px;
+    }
+}
+
+.shop_reservations__table {
+    width: 100%;
+    border: solid 1px var(--border);
+    border-collapse: collapse;
+
+    th {
+        height: 70px;
+        background-color: rgb(255, 164, 103);
+    }
+
+    td {
+        padding: 16px 0;
+        text-align: center;
+        border: solid 1px var(--border);
+
+    }
+
+    .reservations__data:nth-of-type(even) {
+        background-color: #fff6ed;
+    }
+}

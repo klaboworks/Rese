@@ -28,6 +28,7 @@ Route::middleware(['auth', 'can:admin'])->group(function () {
         Route::get('/shop/edit/{shop}', [ShopManagementController::class, 'edit'])->name('admin.shop.edit');
         Route::patch('/shop/update', [ShopManagementController::class, 'update'])->name('admin.shop.update');
         Route::delete('/shop/delete', [ShopManagementController::class, 'destroy'])->name('admin.shop.destroy');
+        Route::get('/shop/reservations/{shop}', [ShopManagementController::class, 'reservations'])->name('admin.shop.reservations');
 
         Route::get('staff', [StaffManagementController::class, 'index'])->name('admin.staff.index');
     });

@@ -110,4 +110,9 @@ class ShopManagementController extends Controller
         Shop::find($request->shop_id)->delete();
         return redirect()->route('admin.shop.index');
     }
+
+    public function reservations(Shop $shop)
+    {
+        return view('admin.shop_reservations', compact('shop'));
+    }
 }

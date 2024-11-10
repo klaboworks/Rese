@@ -69,4 +69,14 @@ class Shop extends Model
         }
         return false;
     }
+
+    public function confirmReservations()
+    {
+        return $this
+            ->belongsToMany(User::class, 'reservations')
+            ->withPivot('shop_id', 'date', 'time', 'number')
+            ->orderByPivot('date')
+            ->orderByPivot('time')
+            ->get();
+    }
 }

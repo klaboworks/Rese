@@ -27,7 +27,7 @@
                 <a class="btn__admin-menu" href="{{ route('admin.shop.create') }}">店舗を登録する</a>
                 @can('super-admin')
                     <a href="{{ route('admin.staff.index') }}">店舗責任者一覧</a>
-                    <a class="btn__admin-menu" href="">店舗責任者を登録する</a>
+                    <a class="btn__admin-menu" href="{{ route('admin.staff.registration') }}">店舗責任者を登録する</a>
                 @endcan
             </div>
 

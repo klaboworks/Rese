@@ -4,6 +4,7 @@ use App\Http\Controllers\AdminLoginController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ShopController;
 use App\Http\Controllers\ShopManagementController;
+use App\Http\Controllers\StaffManagementController;
 use App\Http\Controllers\UserController;
 
 Route::get('/', [ShopController::class, 'index'])->name('shop.index');
@@ -27,5 +28,14 @@ Route::middleware(['auth', 'can:admin'])->group(function () {
         Route::get('/shop/edit/{shop}', [ShopManagementController::class, 'edit'])->name('admin.shop.edit');
         Route::patch('/shop/update', [ShopManagementController::class, 'update'])->name('admin.shop.update');
         Route::delete('/shop/delete', [ShopManagementController::class, 'destroy'])->name('admin.shop.destroy');
+        Route::get('/shop/reservations/{shop}', [ShopManagementController::class, 'reservations'])->name('admin.shop.reservations');
+    });
+});
+
+Route::middleware(['auth', 'can:super-admin'])->group(function () {
+    Route::group(['prefix' => 'admin'], function () {
+        Route::get('staff', [StaffManagementController::class, 'index'])->name('admin.staff.index');
+        Route::get('staff/registration', [StaffManagementController::class, 'create'])->name('admin.staff.registration');
+        Route::post('staff/registration', [StaffManagementController::class, 'store'])->name('admin.staff.registred');
     });
 });

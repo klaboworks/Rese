@@ -30,6 +30,7 @@ class ShopManagementController extends Controller
             ->AreaSearch($request->shop_area)
             ->GenreSearch($request->shop_genre)
             ->KeywordSearch($request->shop_name)
+            ->UserIdSearch($request->user_id)
             ->Paginate(5);
         return view('admin.shop_index', compact('areas', 'genres', 'shops'));
     }
@@ -108,5 +109,10 @@ class ShopManagementController extends Controller
 
         Shop::find($request->shop_id)->delete();
         return redirect()->route('admin.shop.index');
+    }
+
+    public function reservations(Shop $shop)
+    {
+        return view('admin.shop_reservations', compact('shop'));
     }
 }

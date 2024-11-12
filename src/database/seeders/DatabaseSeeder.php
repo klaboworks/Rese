@@ -23,8 +23,10 @@ class DatabaseSeeder extends Seeder
         $this->call([
             AreasTableSeeder::class,
             GenresTableSeeder::class,
-            ShopsTableSeeder::class,
             UsersTableSeeder::class,
+            ShopsTableSeeder::class,
+            RolesTableSeeder::class,
+            RolesUsersTableSeeder::class,
         ]);
     }
 }

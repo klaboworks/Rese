@@ -20,15 +20,17 @@
                 </div>
             </div>
         </div>
+
         <div class="heading__navbar">
             <div class="heading__admin-menu">
                 <a href="{{ route('admin.shop.index') }}">店舗一覧</a>
                 <a class="btn__admin-menu" href="{{ route('admin.shop.create') }}">店舗を登録する</a>
                 @can('super-admin')
-                    <a href="{{ route('admin.shop.index') }}">店舗責任者一覧</a>
-                    <a class="btn__admin-menu" href="">店舗責任者を登録する</a>
+                    <a href="{{ route('admin.staff.index') }}">店舗責任者一覧</a>
+                    <a class="btn__admin-menu" href="{{ route('admin.staff.registration') }}">店舗責任者を登録する</a>
                 @endcan
             </div>
+
             <div class="headhing__shop-search">
                 <form action="{{ route('admin.shop.search') }}" method="GET" class="shop-search__form">
                     <select name="shop_area" id="" class="form-element__shop_area">
@@ -45,6 +47,9 @@
                     </select>
                     <input type="text" name='shop_name' placeholder="Search..." class="form-element__shop_name">
                     <button>店舗検索</button>
+                    @cannot('super-admin')
+                        <button name='user_id' value=" {{ Auth::user()->id }}">担当店舗を表示する</button>
+                    @endcan
                 </form>
             </div>
         </div>
@@ -90,7 +95,7 @@
                             </td>
                             <td class="td__setting">
                                 @can('update', $shop)
-                                    <a href="shop/edit/{{ $shop->id }}">
+                                    <a href="{{ route('admin.shop.edit', $shop->id) }}">
                                         <button class="btn__update_shop">更新</button>
                                     </a>
                                     <form method="post" action="{{ route('admin.shop.destroy') }}">
@@ -99,6 +104,9 @@
                                         <button class="btn__delete_shop">削除</button>
                                         <input type="hidden" name="shop_id" value="{{ $shop->id }}">
                                     </form>
+                                    <a href="{{ route('admin.shop.reservations', $shop->id) }}">
+                                        <button class="btn__confirm_reservations">予約確認</button>
+                                    </a>
                                 @endcan
                             </td>
                         </tr>

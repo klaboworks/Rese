@@ -9,11 +9,16 @@ class Shop extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['shop_name',  'area_id', 'genre_id', 'shop_description', 'shop_image'];
+    protected $fillable = ['shop_name',  'area_id', 'genre_id', 'user_id', 'shop_description', 'shop_image'];
 
     public function favorites()
     {
         return $this->hasMany(Favorite::class);
+    }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
     }
 
     public function area()
@@ -47,6 +52,13 @@ class Shop extends Model
         }
     }
 
+    public function scopeUserIdSearch($query, $userId)
+    {
+        if (!empty($userId)) {
+            $query->where('user_id', $userId);
+        }
+    }
+
     public function hasFavorite($user_id)
     {
         $favorite = Favorite::where('user_id', $user_id)
@@ -56,5 +68,15 @@ class Shop extends Model
             return true;
         }
         return false;
+    }
+
+    public function confirmReservations()
+    {
+        return $this
+            ->belongsToMany(User::class, 'reservations')
+            ->withPivot('shop_id', 'date', 'time', 'number')
+            ->orderByPivot('date')
+            ->orderByPivot('time')
+            ->get();
     }
 }

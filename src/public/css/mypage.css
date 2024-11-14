@@ -176,13 +176,11 @@
     width: 100%;
     padding: 40px 0;
     text-align: center;
-    /* border-radius: 40px; */
     position: fixed;
     color: white;
     background-color: #4555ff;
     top: 0;
-    left: 50%;
-    transform: translateX(-50%);
+    left: 0;
     z-index: 110;
 }
 

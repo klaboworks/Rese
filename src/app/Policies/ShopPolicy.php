@@ -13,7 +13,7 @@ class ShopPolicy
      */
     public function viewAny(User $user): bool
     {
-        //
+        return true;
     }
 
     /**
@@ -21,7 +21,7 @@ class ShopPolicy
      */
     public function view(User $user, Shop $shop): bool
     {
-        //
+        return true;
     }
 
     /**
@@ -29,7 +29,7 @@ class ShopPolicy
      */
     public function create(User $user): bool
     {
-        //
+        return true;
     }
 
     /**
@@ -37,7 +37,7 @@ class ShopPolicy
      */
     public function update(User $user, Shop $shop): bool
     {
-        if($user->id == $shop->user_id){
+        if ($user->id == $shop->user_id) {
             return true;
         }
 
@@ -54,7 +54,7 @@ class ShopPolicy
      */
     public function delete(User $user, Shop $shop): bool
     {
-        //
+        return true;
     }
 
     /**
@@ -62,7 +62,7 @@ class ShopPolicy
      */
     public function restore(User $user, Shop $shop): bool
     {
-        //
+        return true;
     }
 
     /**
@@ -70,6 +70,6 @@ class ShopPolicy
      */
     public function forceDelete(User $user, Shop $shop): bool
     {
-        //
+        return true;
     }
 }

@@ -5,7 +5,7 @@
 @endsection
 
 @section('content')
-    <section class="shop_index--headhing">
+    <section class="shop_index--heading">
         <div class="heading__top-bar">
             <div class="top-bar__inner">
                 <div>

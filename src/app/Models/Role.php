@@ -12,7 +12,7 @@ class Role extends Model
 
     public function users()
     {
-        return $this->BelongsToMany(User::class, 'roles_users');
+        return $this->BelongsToMany(User::class, 'roles_users')->withTimestamps();
     }
 
     public function managers()
@@ -21,11 +21,4 @@ class Role extends Model
             ->withPivot('role_id')
             ->get();
     }
-
-    // public function managers()
-    // {
-    //     return $this->belongsToMany(Shop::class, 'roles_users', null, 'user_id', null, 'user_id')
-    //         ->withPivot('role_id')
-    //         ->get();
-    // }
 }

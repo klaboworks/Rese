@@ -64,6 +64,7 @@ class ShopManagementController extends Controller
             'shop_name' => $request->shop_name,
             'area_id' => $request->area_id,
             'genre_id' => $request->genre_id,
+            'user_id' => $request->user_id,
             'shop_description' => $request->shop_description,
             'shop_image' => $path,
         ]);

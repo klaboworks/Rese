@@ -1,0 +1,82 @@
+.managers__headhing {
+
+    .heading__top-bar {
+        background-color: #e66f00;
+        padding: 4px 0;
+    }
+
+    .top-bar__inner {
+        max-width: 1360px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        color: white;
+
+        form {
+            display: inline;
+        }
+
+        button {
+            color: white;
+            border: none;
+            background: none;
+            text-decoration: underline;
+            margin-left: 12px;
+        }
+    }
+
+    >p {
+        text-align: center;
+        font-size: 16px;
+        color: white;
+        padding: 4px 0;
+        background-color: #e66f00;
+    }
+
+    .nav {
+        max-width: 1360px;
+        margin: 24px auto;
+        display: flex;
+        gap: 40px;
+    }
+}
+
+.managers__inner {
+    max-width: 1360px;
+    margin: 0 auto;
+}
+
+.managers__table {
+    width: 100%;
+    border-collapse: collapse;
+
+    th,
+    td {
+        text-align: center;
+        height: 48px;
+        padding: 0 24px;
+    }
+
+    th {
+        background-color: chocolate;
+    }
+
+    tr:nth-of-type(even) {
+        background-color: #ffeed8;
+    }
+}
+
+.name {
+    width: 35%;
+}
+
+.shops {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.shops>p+p::before {
+    content: '/';
+}

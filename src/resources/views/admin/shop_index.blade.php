@@ -89,8 +89,14 @@
                             </td>
                             <td class="td__shop_image">
                                 <div class="shop_image__image">
-                                    {{-- <img src="{{ $shop->shop_image ? asset('storage/' . $shop->shop_image) : asset('storage/' . 'noimage.png') }}" --}}
-                                    <img src="{{ $shop->shop_image }}" alt="">
+                                    @php
+                                        $image = $shop->shop_image;
+                                    @endphp
+                                    @if (str_starts_with($image, 'http'))
+                                        <img src="{{ $shop->shop_image }}" alt="">
+                                    @else
+                                        <img src="{{ asset('storage/' . $image) }}" alt="">
+                                    @endif
                                 </div>
                             </td>
                             <td class="td__setting">

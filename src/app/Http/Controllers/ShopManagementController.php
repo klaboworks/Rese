@@ -53,8 +53,8 @@ class ShopManagementController extends Controller
         $image = $request->file('image');
 
         if ($image) {
-            // $image->getClientOriginalName();
-            // $path = $request->file('image')->storeAs('', $image);
+            $image->getClientOriginalName();
+            $path = $request->file('image')->storeAs('', $image);
             $path = Storage::put('', $image);
         } else {
             $path = null;

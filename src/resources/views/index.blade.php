@@ -60,7 +60,14 @@
                     @forelse ($shops as $shop)
                         <div class="shop-cards__item">
                             <div class="shop-card__head">
-                                <img src="{{ $shop->shop_image }}" alt="">
+                                @php
+                                    $image = $shop->shop_image;
+                                @endphp
+                                @if (str_starts_with($image, 'http'))
+                                    <img src="{{ $image }}" alt="">
+                                @else
+                                    <img src="{{ asset('storage/' . $image) }}" alt="">
+                                @endif
                             </div>
                             <div class="shop-card__body">
                                 <h2 class="shop_name">{{ $shop->shop_name }}</h2>

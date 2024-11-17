@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AdminLoginController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\MailController;
 use App\Http\Controllers\ShopController;
 use App\Http\Controllers\ShopManagementController;
 use App\Http\Controllers\StaffManagementController;
@@ -34,8 +35,12 @@ Route::middleware(['auth', 'can:admin'])->group(function () {
 
 Route::middleware(['auth', 'can:super-admin'])->group(function () {
     Route::group(['prefix' => 'admin'], function () {
-        Route::get('staff', [StaffManagementController::class, 'index'])->name('admin.staff.index');
-        Route::get('staff/registration', [StaffManagementController::class, 'create'])->name('admin.staff.registration');
-        Route::post('staff/registration', [StaffManagementController::class, 'store'])->name('admin.staff.registred');
+        Route::get('/staff', [StaffManagementController::class, 'index'])->name('admin.staff.index');
+        Route::get('/staff/registration', [StaffManagementController::class, 'create'])->name('admin.staff.registration');
+        Route::post('/staff/registration', [StaffManagementController::class, 'store'])->name('admin.staff.registred');
+        Route::get('/users', [MailController::class, 'viewAllUsers'])->name('admin.get.users');
+        Route::get('/users/email/form', [MailController::class, 'emailForm'])->name('admin.email.form');
+        Route::post('/users/email/confirm', [MailController::class, 'confirmNewsEmail'])->name('admin.email.confirm');
+        Route::post('/users/email/send', [MailController::class, 'sendNewsEmail'])->name('admin.email.send');
     });
 });

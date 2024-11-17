@@ -40,7 +40,7 @@
                             <div class="reservation__panel">
                                 <div class="panel__heading">
                                     <img src="icons/clock.png" alt="">
-                                    <p>予約 <span class="reservation_number"></span></p>
+                                    <p>予約 <span>{{ $loop->iteration }}</span></p>
                                     <div class="change_buttons">
                                         <button class="update_btn">変更</button>
                                         <button class="cancel_btn">キャンセル</button>

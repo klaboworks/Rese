@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('css')
-    <link rel="stylesheet" href="{{ asset('css/shop_index.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/admin/shop_index.css') }}">
 @endsection
 
 @section('content')
@@ -28,6 +28,7 @@
                 @can('super-admin')
                     <a href="{{ route('admin.staff.index') }}">店舗責任者一覧</a>
                     <a class="btn__admin-menu" href="{{ route('admin.staff.registration') }}">店舗責任者を登録する</a>
+                    <a href="{{ route('admin.get.users') }}">ユーザー一覧</a>
                 @endcan
             </div>
 

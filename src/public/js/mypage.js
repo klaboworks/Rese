@@ -1,12 +1,5 @@
 'use strict';
 {
-    // 予約番号表示
-    const reservations = document.querySelectorAll('.reservation__panel')
-    const reservation_number = document.querySelectorAll('.reservation_number');
-    for (let i = 0; i < reservations.length; i++) {
-        reservation_number[i].textContent = i + 1;
-    }
-
     // 予約アップデートパネル
     const update_btns = document.querySelectorAll('.update_btn');
     const updates = document.querySelectorAll('.reservation__field--update');

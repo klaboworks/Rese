@@ -1,0 +1,48 @@
+.news_form_confirm {
+    position: absolute;
+    inset: 0;
+    background-color: antiquewhite;
+}
+
+.news_form_confirm__inner {
+    padding: 32px;
+    max-width: 700px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.page_title {
+    font-size: 32px;
+    font-weight: normal;
+}
+
+.news_form_confirm__form {
+    margin-top: 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.title_text {
+    background-color: white;
+    border: solid 1px #c9c9c9;
+    padding: 4px;
+}
+
+.body_text {
+    background-color: white;
+    border: solid 1px #c9c9c9;
+    padding: 4px;
+}
+
+.btn__submit {
+    width: 120px;
+    margin: 32px auto 0;
+}
+
+.btn__back {
+    background-color:transparent;
+    border: none;
+    text-decoration: underline;
+    color: blue;
+}

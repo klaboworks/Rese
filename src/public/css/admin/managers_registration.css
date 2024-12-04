@@ -1,10 +1,10 @@
-.shop_registration {
+.managers_resistration {
     position: absolute;
     inset: 0;
     background-color: #fbefd8;
 }
 
-.shop_registration__inner {
+.managers_registration__inner {
     padding-top: 80px;
 }
 
@@ -14,7 +14,7 @@
     text-align: center;
 }
 
-.shop_registration__form {
+.managers_registration__form {
     background-color: white;
     max-width: 600px;
     border-radius: 8px;
@@ -32,7 +32,7 @@
     text-align: left;
 }
 
-[class^="form__shop_"] > th {
+[class^="form__managers_"] > th {
     height: 60px;
     width: 50%;
 }
@@ -56,4 +56,9 @@
     display: block;
     text-align: center;
     margin-top: 32px;
+}
+
+.error {
+    font-size: 10px;
+    color: tomato;
 }

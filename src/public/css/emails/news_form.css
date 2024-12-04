@@ -1,0 +1,47 @@
+.news_form {
+    position: absolute;
+    inset: 0;
+    background-color: antiquewhite;
+}
+
+.news_form__inner {
+    padding: 32px;
+    max-width: 700px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.page_title {
+    font-size: 32px;
+    font-weight: normal;
+}
+
+.news_form__form {
+    margin-top: 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+
+    > div {
+        > input {
+            padding: 4px;
+            width: 100%;
+        }
+
+        > textarea {
+            padding: 4px;
+            width: 100%;
+            resize: vertical;
+        }
+    }
+}
+
+.btn__to_confirm {
+    width: 120px;
+    margin: 32px auto 0;
+}
+
+.btn__back {
+    display: inline-block;
+    margin-top: 32px;
+}

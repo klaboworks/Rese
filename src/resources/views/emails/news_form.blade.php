@@ -14,10 +14,20 @@
                 @csrf
                 <div>
                     <p>件名：</p>
+                    @error('subject')
+                        <small class="error_message">
+                            {{ $message }}
+                        </small>
+                    @enderror
                     <input type="text" name="subject" placeholder="件名を入力" value="{{ old('subject') }}">
                 </div>
                 <div>
                     <p>本文：</p>
+                    @error('content')
+                        <small class="error_message">
+                            {{ $message }}
+                        </small>
+                    @enderror
                     <textarea name="content" placeholder="本文を入力">{{ old('content') }}</textarea>
                 </div>
                 <button type="submit" class="btn__to_confirm">確認画面へ</button>

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Mail\NewsEmail;
+use App\Http\Requests\NewsletterRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Mail;
@@ -27,7 +28,7 @@ class MailController extends Controller
         return view('emails.news_form');
     }
 
-    public function confirmNewsEmail(Request $request)
+    public function confirmNewsEmail(NewsletterRequest $request)
     {
         $subject = $request->subject;
         $content = $request->content;

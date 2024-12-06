@@ -57,3 +57,7 @@
     text-align: center;
     margin-top: 32px;
 }
+
+.error_message{
+    color: tomato;
+}

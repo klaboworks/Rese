@@ -17,12 +17,24 @@
                 <table class="shop-creation-form__table">
                     <tr class="form__shop_name">
                         <th><label for="shop_name">店舗名</label></th>
-                        <td><input type="text" name="shop_name" class="input__shop_name"></td>
+                        <td>
+                            <input type="text" name="shop_name" class="input__shop_name" value="{{ old('shop_name') }}">
+                            @error('shop_name')
+                                <small class="error_message">
+                                    {{ $message }}
+                                </small>
+                            @enderror
+                        </td>
                     </tr>
                     <tr class="form__shop_description">
                         <th><label for="shop_description">店舗情報</label></th>
                         <td>
-                            <textarea name="shop_description" id="" class="input__shop_description"></textarea>
+                            <textarea name="shop_description" id="" class="input__shop_description">{{ old('shop_description') }}</textarea>
+                            @error('shop_description')
+                                <small class="error_message">
+                                    {{ $message }}
+                                </small>
+                            @enderror
                         </td>
                     </tr>
                     <tr class="form__shop_area_genre">

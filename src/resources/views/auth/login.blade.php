@@ -1,5 +1,7 @@
 @extends('layouts.app')
 
+@section('title', 'ログイン')
+
 @section('css')
     <link rel="stylesheet" href="{{ asset('css/auth.css') }}">
     <link rel="stylesheet" href="{{ asset('css/menu.css') }}">
@@ -25,12 +27,24 @@
                             @csrf
                             <div class="input__elements">
                                 <img src="{{ asset('icons/email.png') }}" alt="">
-                                <input type="text" name="email" placeholder="Email" class="input__email">
+                                <input type="text" name="email" placeholder="Email" class="input__email"
+                                    value="{{ old('email') }}">
                             </div>
+                            <small class="error_message">
+                                @error('email')
+                                    {{ $message }}
+                                @enderror
+                            </small>
                             <div class="input__elements">
                                 <img src="{{ asset('icons/password.png') }}" alt="">
-                                <input type="password" name="password" placeholder="Password" class="input__pass">
+                                <input type="password" name="password" placeholder="Password" class="input__pass"
+                                    value="{{ old('password') }}">
                             </div>
+                            <small class="error_message">
+                                @error('password')
+                                    {{ $message }}
+                                @enderror
+                            </small>
                             <button type="submit" class="login__btn">ログイン</button>
                         </form>
                     </div>

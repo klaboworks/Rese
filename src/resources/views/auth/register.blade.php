@@ -1,5 +1,7 @@
 @extends('layouts.app')
 
+@section('title','ユーザー登録')
+
 @section('css')
     <link rel="stylesheet" href="{{ asset('css/auth.css') }}">
     <link rel="stylesheet" href="{{ asset('css/menu.css') }}">
@@ -25,16 +27,27 @@
                             @csrf
                             <div class="input__elements">
                                 <img src="{{ asset('icons/user.png') }}" alt="">
-                                <input type="text" name="name" placeholder="Username">
+                                <input type="text" name="name" placeholder="Username" value="{{ old('name') }}">
                             </div>
+                            @error('name')
+                                {{ $message }}
+                            @enderror
                             <div class="input__elements">
                                 <img src="{{ asset('icons/email.png') }}" alt="">
-                                <input type="text" name="email" placeholder="Email" class="input__email">
+                                <input type="text" name="email" placeholder="Email" class="input__email"
+                                    value="{{ old('email') }}">
                             </div>
+                            @error('email')
+                                {{ $message }}
+                            @enderror
                             <div class="input__elements">
                                 <img src="{{ asset('icons/password.png') }}" alt="">
-                                <input type="text" name="password" placeholder="Password" class="input__pass">
+                                <input type="text" name="password" placeholder="Password" class="input__pass"
+                                    value="{{ old('password') }}">
                             </div>
+                            @error('password')
+                                {{ $message }}
+                            @enderror
                             <button type="submit" class="register__btn">登録</button>
                         </form>
                     </div>

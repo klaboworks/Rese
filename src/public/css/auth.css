@@ -180,10 +180,11 @@
     }
 
     >.gotop__btn {
-        margin-top: 12px;
+        display: inline-block;
+        margin-top: 24px;
         margin-left: auto;
         padding: 6px 20px;
-        width: 80px;
+        width: 120px;
         font-size: 12px;
         color: white;
         background-color: #4553ff;
@@ -235,4 +236,9 @@
         text-decoration: none;
         cursor: pointer;
     }
+}
+
+.error_message
+{
+    color: tomato;
 }

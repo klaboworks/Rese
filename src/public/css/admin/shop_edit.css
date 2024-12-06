@@ -1,0 +1,49 @@
+.shop_edit {
+    position: absolute;
+    inset: 0;
+    background-color: #fbefd8;
+}
+
+.shop_edit__inner {
+    padding-top: 80px;
+}
+
+.page_title {
+    font-size: 32px;
+    font-weight: normal;
+    text-align: center;
+}
+
+.shop_edit__form {
+    background-color: white;
+    max-width: 600px;
+    border-radius: 8px;
+    box-shadow: 2px 2px 12px #aea696;
+    padding: 40px;
+    margin: 24px auto 0;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    text-align: left;
+}
+
+.shop_description {
+    width: 100%;
+    border: solid 1px grey;
+    resize: vertical;
+}
+
+.btn__update {
+    display: block;
+    margin: 8px auto 0;
+    width: 35%;
+    height: 40px;
+}
+
+.btn__back{
+    display: block;
+    text-align: center;
+    margin-top: 8px;
+    color: blue;
+    text-decoration: underline;
+}

@@ -1,5 +1,7 @@
 @extends('layouts.app')
 
+@section('title', '店舗一覧')
+
 @section('css')
     <link rel="stylesheet" href="{{ asset('css/admin/shop_index.css') }}">
 @endsection

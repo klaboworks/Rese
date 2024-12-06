@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Requests\ShopRegistrationRequest;
 use Illuminate\Support\Facades\Storage;
 use Intervention\Image\Laravel\Facades\Image as InterventionImage;
 use App\Models\Shop;
@@ -48,7 +49,7 @@ class ShopManagementController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(ShopRegistrationRequest $request)
     {
         $image = $request->file('image');
 
